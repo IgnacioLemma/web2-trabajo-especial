@@ -10,8 +10,17 @@
  - [Extra](#extra)
 
 ## Descripción del Proyecto Hostel
-        
-        
+
+    Un hostel es un tipo de alojamiento economico, generalmente
+    de estadia corta en donde se comparten areas comunes, como
+    las habitaciones, baño y comedores.
+    El objetivo del proyecto es crear un sitio donde el usuario pueda
+    reservar habitaciones de difertes tamaños, segun la capacidad,
+    en una fecha determinada, adaptandose a las preferencas y seleccionado
+    el hostel que le interese, reservandolo.
+    Para ello se realizara tecnologias backend como php y base de datos
+    SQL para almacenar los detalles de los hostel, como la disponibilidad,
+    precios y las reservaciones
 
 ## Diagrama
 
@@ -23,8 +32,8 @@
 
 ### Habitaciones
 
-| Columna    | Tipo     | Descripcion                                           |
-|------------|----------|--------------------------------------------------     |
+| Columna       | Tipo     | Descripcion                                        |
+|---------------|----------|--------------------------------------------------  |
 | id_habitacion | INT      | ID unico de la habitacion [Clave primaria]         |
 | Nombre        | VARCHAR  | Nombre de la habitacion                            |
 | Tipo          | VARCHAR  | Tipo de habitación (individual, doble, compartida) |
@@ -33,8 +42,8 @@
 
 ## Reservas
 
-| Columna        | Tipo     | Descripcion                                          |
-|----------------|----------|------------------------------------------------------|
+| Columna       | Tipo     | Descripcion                                            |
+|---------------|----------|--------------------------------------------------------|
 | id_reserva    | INT      | ID unico de la reserva [Clave primaria]                |
 | id_habitacion | INT      | ID unico de la habitacion [Clave foranea]              |
 | Check_in      | DATE     | Fecha de inicio de la reserva                          |
@@ -72,7 +81,7 @@
 ## AUTORES
 
 - Lemma Ignacio
-    - **Mail**: alabadoseaninja@gmail.com
+    - **Mail**: ignaciolemma1803@gmail.com
 - Barrionuevo Noa
     - **Mail**: barrionuevonoa18@gmail.com
 
