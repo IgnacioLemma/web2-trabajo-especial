@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-09-2024 a las 01:54:05
+-- Tiempo de generación: 13-09-2024 a las 00:55:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -35,6 +35,17 @@ CREATE TABLE `habitaciones` (
   `Precio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `habitaciones`
+--
+
+INSERT INTO `habitaciones` (`id_habitacion`, `Nombre`, `Tipo`, `Capacidad`, `Precio`) VALUES
+(1, 'Habitacion 1	', 'Individual', 1, 500),
+(2, 'Habitacion 2', 'Doble', 2, 750),
+(3, 'Habitacion 3', 'Doble', 2, 600),
+(4, 'Habitacion 4', 'Suite', 4, 1500),
+(5, 'Habitacion 5', 'Compartida', 8, 2000);
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +59,18 @@ CREATE TABLE `reservas` (
   `Check_out` date NOT NULL,
   `nombre_cliente` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, `nombre_cliente`) VALUES
+(4, 1, '2024-10-01', '2024-10-05', 'Juan'),
+(5, 2, '2024-10-01', '2024-10-15', 'Mati'),
+(7, 1, '2024-10-03', '2024-10-07', 'Marisa'),
+(8, 4, '2024-10-03', '2024-10-20', 'Edena'),
+(11, 3, '2024-10-02', '2024-10-18', 'Noa'),
+(16, 5, '2024-10-01', '2024-10-25', 'Jorge');
 
 --
 -- Índices para tablas volcadas
@@ -74,13 +97,13 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
-  MODIFY `id_habitacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_habitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restricciones para tablas volcadas
