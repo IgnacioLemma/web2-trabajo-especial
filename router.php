@@ -1,5 +1,6 @@
 <?php
-// require_once 'app/controllers/hostel.controller.php';
+
+require_once 'app/controllers/hostel.controller.php';
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -23,21 +24,21 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'Rooms':
         $controller = new HostelController();
-        $controller->showRoom();
+        $controller->showRoom(); // Mostrar listado de habitaciones (item)
         break;
     case 'RoomsDetails':
         $controller = new HostelController();
-        $controller->showRoomDetails();
+        $controller->showRoomDetails(); // Mostrar detalle de la habitación (item)
         break;
     case 'ListCatergory':
         $controller = new HostelController();
-        $controller->showListCategory();
+        $controller->showListCategory(); // Mostrar listado de tipos (categoria)
         break;
     case 'ItemsCatergory':
         $controller = new HostelController();
-        $controller->showItemsCategory();
+        $controller->showItemsCategory($params[1]);  // Mostrar habitaciones (item) por tipo (categoria)
         break;
-    default: 
+    default:
         echo "404 Page Not Found"; // pagina de error por hacer
         break;
 }
