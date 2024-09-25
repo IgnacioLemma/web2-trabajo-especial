@@ -29,7 +29,7 @@ switch ($params[0]) {
     //     $controller->showIndex(); // Mostrar la página de inicio
     //    break;
     case 'Rooms':
-        echo "test noita";
+        echo "test noita2";
         $controller = new HostelController();
         $controller->showRoom(); // Mostrar listado de habitaciones (item)
         break;
