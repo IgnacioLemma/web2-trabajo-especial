@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2024 a las 00:55:20
+-- Tiempo de generación: 25-09-2024 a las 20:31:39
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,11 +40,26 @@ CREATE TABLE `habitaciones` (
 --
 
 INSERT INTO `habitaciones` (`id_habitacion`, `Nombre`, `Tipo`, `Capacidad`, `Precio`) VALUES
-(1, 'Habitacion 1	', 'Individual', 1, 500),
-(2, 'Habitacion 2', 'Doble', 2, 750),
-(3, 'Habitacion 3', 'Doble', 2, 600),
-(4, 'Habitacion 4', 'Suite', 4, 1500),
-(5, 'Habitacion 5', 'Compartida', 8, 2000);
+(1, 'Habitación Individual - Vista al Mar', 'Individual', 1, 500),
+(2, 'Habitación Doble - Cama King', 'Doble', 2, 750),
+(3, 'Habitación Doble - Cama Queen', 'Doble', 2, 600),
+(4, 'Suite - Lujo en París', 'Suite', 4, 1500),
+(5, 'Habitación Compartida - Backpackers', 'Compartida', 8, 2000),
+(6, 'Habitación Individual - Relax en Buenos Aires', 'Individual', 1, 600),
+(7, 'Habitación Doble - Romántica en Mendoza', 'Doble', 2, 800),
+(8, 'Suite - Paraíso en Cancún', 'Suite', 4, 1800),
+(9, 'Habitación Compartida - Aventura en Bariloche', 'Compartida', 6, 1500),
+(10, 'Habitación Familiar - Escape a la Costa', 'Familiar', 5, 2500),
+(11, 'Habitación Individual - Refugio en Rosario', 'Individual', 1, 700),
+(12, 'Habitación Doble - Oasis en Dubai', 'Doble', 2, 850),
+(13, 'Suite - Experiencia en Bora Bora', 'Suite', 4, 2000),
+(14, 'Habitación Compartida - Comunidad en Córdoba', 'Compartida', 6, 1700),
+(15, 'Habitación Familiar - Recuerdos en Tandil', 'Familiar', 5, 3000),
+(16, 'Habitación Deluxe - Estilo en Ibiza', 'Deluxe', 3, 2200),
+(17, 'Habitación Económica - Ahorro en La Plata', 'Economica', 2, 500),
+(18, 'Habitación Premium - Lujo en Las Vegas', 'Premium', 4, 2500),
+(19, 'Habitación Deluxe - Vista a la Ciudad de Nueva Yor', 'Deluxe', 3, 2400),
+(20, 'Habitación Económica - Confort en Tandil', 'Económica', 2, 450);
 
 -- --------------------------------------------------------
 
@@ -66,11 +81,11 @@ CREATE TABLE `reservas` (
 
 INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, `nombre_cliente`) VALUES
 (4, 1, '2024-10-01', '2024-10-05', 'Juan'),
-(5, 2, '2024-10-01', '2024-10-15', 'Mati'),
 (7, 1, '2024-10-03', '2024-10-07', 'Marisa'),
 (8, 4, '2024-10-03', '2024-10-20', 'Edena'),
 (11, 3, '2024-10-02', '2024-10-18', 'Noa'),
-(16, 5, '2024-10-01', '2024-10-25', 'Jorge');
+(16, 5, '2024-10-01', '2024-10-25', 'Jorge'),
+(19, 4, '2024-09-20', '2024-09-25', 'hola mundo');
 
 --
 -- Índices para tablas volcadas
@@ -97,13 +112,13 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
-  MODIFY `id_habitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_habitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas
