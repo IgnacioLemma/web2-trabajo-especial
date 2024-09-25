@@ -1,6 +1,7 @@
 <?php
 
 class HostelView {
+
     // Muestra la lista de habitaciones
     public function showRooms($rooms) {
         require_once './templates/header.phtml';

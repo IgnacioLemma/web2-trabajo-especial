@@ -12,6 +12,7 @@ if (!empty( $_GET['action'])) {
 
 // tabla de ruteo
 
+// inicio de la pagina -> HostelController-> showIndex();
 // listar items  -> HostelController->showRoom();
 // detalle items  -> HostelController->showRoomDetails();
 // listar categorias -> HostelController->showListCategory();
@@ -22,9 +23,11 @@ if (!empty( $_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
-    case 'index':
-        echo 'Test';
-        break;
+    // Por verse
+    //case 'index':
+    //     $controller = new HostelController();
+    //     $controller->showIndex(); // Mostrar la página de inicio
+    //    break;
     case 'Rooms':
         $controller = new HostelController();
         $controller->showRoom(); // Mostrar listado de habitaciones (item)

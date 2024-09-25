@@ -11,6 +11,7 @@ class Hostelcontroller{
         $this->model = new HostelModel(); 
         $this->view = new HostelView();
     }
+
     public function showRoom() {
         $rooms = $this->model->getRooms(); // Obtiene todas las habitaciones
         return $this->view->showRooms($rooms); // Envía las habitaciones a la vista
