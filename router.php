@@ -40,10 +40,15 @@ switch ($params[0]) {
         $controller = new HostelController();
         $controller->showListCategory(); // Mostrar listado de tipos (categoria)
         break;
-    case 'ItemsCatergory':
-        $controller = new HostelController();
-        $controller->showItemsCategory($params[1]);  // Mostrar habitaciones (item) por tipo (categoria)
-        break;
+        case 'ItemsCategory':
+            if (isset($params[1])) { //Tomamos el tipo por url
+                $controller = new HostelController();
+                $tipo = $params[1];
+                $controller->showItemsCategory($tipo); // Mostrar habitaciones por tipo
+            } else {
+                echo "Error: No se proporcionó el tipo de habitación.";
+            }
+            break;
     default:
         echo "404 Page Not Found"; // pagina de error por hacer
         break;
