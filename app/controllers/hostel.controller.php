@@ -17,6 +17,15 @@ class Hostelcontroller{
         $rooms = $this->model->getRooms(); // Obtiene todas las habitaciones
         return $this->view->showRooms($rooms); // Envía las habitaciones a la vista
     }
+    public function showRoomDetails($id_habitacion) {
+        $room = $this->model->getRoomById($id_habitacion);
+
+        if ($room) {
+            $this->view->showRoomDetails($room);
+        } else {
+            echo "La habitación con el ID especificado no existe.";
+        }
+    }
     public function showListCategory() {
         $categorias = $this->model->showListCategory(); // Obtiene la categorias de las habitaciones
         return $this->view->showListCategory($categorias);

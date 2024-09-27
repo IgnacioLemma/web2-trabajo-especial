@@ -33,22 +33,27 @@ switch ($params[0]) {
         $controller->showRoom(); // Mostrar listado de habitaciones (item)
         break;
     case 'RoomsDetails':
-        $controller = new HostelController();
-        $controller->showRoomDetails(); // Mostrar detalle de la habitación (item)
+        if (isset($params[1])) {
+            $controller = new HostelController();
+            $id_habitacion = $params[1]; 
+            $controller->showRoomDetails($id_habitacion);// Mostrar detalle de la habitación (item)
+        } else {
+            echo "Error: No se proporcionó el ID de la habitación.";
+            } 
         break;
     case 'ListCatergory':
         $controller = new HostelController();
         $controller->showListCategory(); // Mostrar listado de tipos (categoria)
         break;
-        case 'ItemsCategory':
-            if (isset($params[1])) { //Tomamos el tipo por url
-                $controller = new HostelController();
-                $tipo = $params[1];
-                $controller->showItemsCategory($tipo); // Mostrar habitaciones por tipo
-            } else {
-                echo "Error: No se proporcionó el tipo de habitación.";
+    case 'ItemsCategory':
+        if (isset($params[1])) { //Tomamos el tipo por url
+            $controller = new HostelController();
+            $tipo = $params[1];
+            $controller->showItemsCategory($tipo); // Mostrar habitaciones por tipo
+        } else {
+            echo "Error: No se proporcionó el tipo de habitación.";
             }
-            break;
+        break;
     default:
         echo "404 Page Not Found"; // pagina de error por hacer
         break;
