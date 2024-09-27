@@ -14,15 +14,13 @@ class HostelView {
         require_once './templates/footer.phtml';
     }
 
-    public function showRoomDetails ($room){
+    // Muestra los
+    public function showRoomDetails($room) {
         require_once './templates/header.phtml';
-        echo "<h1>Detalles de la Habitación: {$room->Nombre}</h1>";
-        echo "<p><strong>Tipo:</strong> {$room->Tipo}</p>";
-        echo "<p><strong>Capacidad:</strong> {$room->Capacidad} personas</p>";
-        echo "<p><strong>Precio:</strong> \${$room->Precio} por noche</p>";
-        echo "<a href='" . BASE_URL . "Rooms'>Listado de habitaciones</a>";
+        require_once './templates/room_details.phtml';
         require_once './templates/footer.phtml';
     }
+    
 
     // Muestra la lista de categorías (tipos de habitaciones)
     public function showListCategory($categories) {
