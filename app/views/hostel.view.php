@@ -14,7 +14,7 @@ class HostelView {
         require_once './templates/footer.phtml';
     }
 
-    // Muestra los
+    // Muestra los detalles de las habitaciones
     public function showRoomDetails($room) {
         require_once './templates/header.phtml';
         require_once './templates/room_details.phtml';
