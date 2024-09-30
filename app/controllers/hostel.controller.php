@@ -23,7 +23,7 @@ class Hostelcontroller{
         if ($room) {
             $this->view->showRoomDetails($room);
         } else {
-            echo "La habitación con el ID especificado no existe.";
+            echo "La habitación con el ID especificado no existe."; // Luego seria pagina de error
         }
     }
     public function showListCategory() {
