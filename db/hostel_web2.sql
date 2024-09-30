@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2024 a las 20:31:39
+-- Tiempo de generación: 30-09-2024 a las 22:49:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -32,34 +32,35 @@ CREATE TABLE `habitaciones` (
   `Nombre` varchar(50) NOT NULL,
   `Tipo` varchar(20) NOT NULL,
   `Capacidad` int(11) NOT NULL,
-  `Precio` int(11) NOT NULL
+  `Precio` int(11) NOT NULL,
+  `foto_habitacion` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `habitaciones`
 --
 
-INSERT INTO `habitaciones` (`id_habitacion`, `Nombre`, `Tipo`, `Capacidad`, `Precio`) VALUES
-(1, 'Habitación Individual - Vista al Mar', 'Individual', 1, 500),
-(2, 'Habitación Doble - Cama King', 'Doble', 2, 750),
-(3, 'Habitación Doble - Cama Queen', 'Doble', 2, 600),
-(4, 'Suite - Lujo en París', 'Suite', 4, 1500),
-(5, 'Habitación Compartida - Backpackers', 'Compartida', 8, 2000),
-(6, 'Habitación Individual - Relax en Buenos Aires', 'Individual', 1, 600),
-(7, 'Habitación Doble - Romántica en Mendoza', 'Doble', 2, 800),
-(8, 'Suite - Paraíso en Cancún', 'Suite', 4, 1800),
-(9, 'Habitación Compartida - Aventura en Bariloche', 'Compartida', 6, 1500),
-(10, 'Habitación Familiar - Escape a la Costa', 'Familiar', 5, 2500),
-(11, 'Habitación Individual - Refugio en Rosario', 'Individual', 1, 700),
-(12, 'Habitación Doble - Oasis en Dubai', 'Doble', 2, 850),
-(13, 'Suite - Experiencia en Bora Bora', 'Suite', 4, 2000),
-(14, 'Habitación Compartida - Comunidad en Córdoba', 'Compartida', 6, 1700),
-(15, 'Habitación Familiar - Recuerdos en Tandil', 'Familiar', 5, 3000),
-(16, 'Habitación Deluxe - Estilo en Ibiza', 'Deluxe', 3, 2200),
-(17, 'Habitación Económica - Ahorro en La Plata', 'Economica', 2, 500),
-(18, 'Habitación Premium - Lujo en Las Vegas', 'Premium', 4, 2500),
-(19, 'Habitación Deluxe - Vista a la Ciudad de Nueva Yor', 'Deluxe', 3, 2400),
-(20, 'Habitación Económica - Confort en Tandil', 'Económica', 2, 450);
+INSERT INTO `habitaciones` (`id_habitacion`, `Nombre`, `Tipo`, `Capacidad`, `Precio`, `foto_habitacion`) VALUES
+(1, 'Habitación Individual - Vista al Mar', 'Individual', 1, 500, 'imagen_habitacion_101.jpg'),
+(2, 'Habitación Doble - Cama King', 'Doble', 2, 750, 'imagen_habitacion_102.jpg'),
+(3, 'Habitación Doble - Cama Queen', 'Doble', 2, 600, 'imagen_habitacion_103.jpg'),
+(4, 'Suite - Lujo en París', 'Suite', 4, 1500, 'imagen_habitacion_104.jpg'),
+(5, 'Habitación Compartida - Backpackers', 'Compartida', 8, 2000, 'imagen_habitacion_105.jpg'),
+(6, 'Habitación Individual - Relax en Buenos Aires', 'Individual', 1, 600, 'imagen_habitacion_106.jpg'),
+(7, 'Habitación Doble - Romántica en Mendoza', 'Doble', 2, 800, 'imagen_habitacion_107.jpg'),
+(8, 'Suite - Paraíso en Cancún', 'Suite', 4, 1800, 'imagen_habitacion_108.jpg'),
+(9, 'Habitación Compartida - Aventura en Bariloche', 'Compartida', 6, 1500, 'imagen_habitacion_109.jpg'),
+(10, 'Habitación Familiar - Escape a la Costa', 'Familiar', 5, 2500, 'imagen_habitacion_110.jpg'),
+(11, 'Habitación Individual - Refugio en Rosario', 'Individual', 1, 700, 'imagen_habitacion_111.jpg'),
+(12, 'Habitación Doble - Oasis en Dubai', 'Doble', 2, 850, 'imagen_habitacion_112.jpg'),
+(13, 'Suite - Experiencia en Bora Bora', 'Suite', 4, 2000, 'imagen_habitacion_113.jpg'),
+(14, 'Habitación Compartida - Comunidad en Córdoba', 'Compartida', 6, 1700, 'imagen_habitacion_114.jpg'),
+(15, 'Habitación Familiar - Recuerdos en Tandil', 'Familiar', 5, 3000, 'imagen_habitacion_115.jpg'),
+(16, 'Habitación Deluxe - Estilo en Ibiza', 'Deluxe', 3, 2200, 'imagen_habitacion_116.jpg'),
+(17, 'Habitación Económica - Ahorro en La Plata', 'Economica', 2, 500, 'imagen_habitacion_117.jpg'),
+(18, 'Habitación Premium - Lujo en Las Vegas', 'Premium', 4, 2500, 'imagen_habitacion_118.jpg'),
+(19, 'Habitación Deluxe - Vista a la Ciudad de Nueva Yor', 'Deluxe', 3, 2400, 'imagen_habitacion_119.jpg'),
+(20, 'Habitación Económica - Confort en Tandil', 'Económica', 2, 450, 'imagen_habitacion_120.jpg');
 
 -- --------------------------------------------------------
 

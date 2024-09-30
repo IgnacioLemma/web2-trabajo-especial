@@ -5,7 +5,7 @@ require_once 'app/controllers/hostel.controller.php';
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$action = 'index'; // accion por defecto si no se envia ninguna
+$action = 'Rooms'; // accion por defecto si no se envia ninguna
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
