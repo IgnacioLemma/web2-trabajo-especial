@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2024 a las 22:49:54
+-- Tiempo de generación: 02-10-2024 a las 01:00:36
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -73,20 +73,42 @@ CREATE TABLE `reservas` (
   `id_habitacion` int(11) NOT NULL,
   `Check_in` date NOT NULL,
   `Check_out` date NOT NULL,
-  `nombre_cliente` varchar(100) NOT NULL
+  `nombre_cliente` varchar(100) NOT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reservas`
 --
 
-INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, `nombre_cliente`) VALUES
-(4, 1, '2024-10-01', '2024-10-05', 'Juan'),
-(7, 1, '2024-10-03', '2024-10-07', 'Marisa'),
-(8, 4, '2024-10-03', '2024-10-20', 'Edena'),
-(11, 3, '2024-10-02', '2024-10-18', 'Noa'),
-(16, 5, '2024-10-01', '2024-10-25', 'Jorge'),
-(19, 4, '2024-09-20', '2024-09-25', 'hola mundo');
+INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, `nombre_cliente`, `id_usuario`) VALUES
+(4, 1, '2024-10-01', '2024-10-05', 'Juan', 1),
+(7, 1, '2024-10-03', '2024-10-07', 'Marisa', 1),
+(8, 4, '2024-10-03', '2024-10-20', 'Edena', 1),
+(11, 3, '2024-10-02', '2024-10-18', 'Noa', 2),
+(16, 5, '2024-10-01', '2024-10-25', 'Jorge', 1),
+(19, 4, '2024-09-20', '2024-09-25', 'hola mundo', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `email_usuario` varchar(250) NOT NULL,
+  `contraseña` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `email_usuario`, `contraseña`) VALUES
+(1, 'webadmin@tudai.ar', 'admin'),
+(2, 'noa@tudai.es', 'holamundo'),
+(3, 'hellotudai@web2.phtml', ' basededatos');
 
 --
 -- Índices para tablas volcadas
@@ -103,7 +125,15 @@ ALTER TABLE `habitaciones`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`),
-  ADD KEY `id_habitacion` (`id_habitacion`);
+  ADD KEY `id_habitacion` (`id_habitacion`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `email_usuario` (`email_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -122,6 +152,12 @@ ALTER TABLE `reservas`
   MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -129,7 +165,8 @@ ALTER TABLE `reservas`
 -- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_habitacion`) REFERENCES `habitaciones` (`id_habitacion`);
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_habitacion`) REFERENCES `habitaciones` (`id_habitacion`),
+  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
