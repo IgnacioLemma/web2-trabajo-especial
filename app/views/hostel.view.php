@@ -12,7 +12,7 @@ class HostelView {
             echo "<div class='card'>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title'>{$room->Nombre}</h5>";
-            echo "<img src='" . BASE_URL . "images/{$room->foto_habitacion}' class='card-img-top' alt='Imagen de {$room->Nombre}'>";
+            echo "<img src='" . BASE_URL . "img/FotosHabitaciones/{$room->foto_habitacion}' class='card-img-top' alt='Imagen de {$room->Nombre}'>";
             echo "<a href='" . BASE_URL . "RoomsDetails/" . $room->id_habitacion . "' class='btn btn-secondary'>Ver Detalles</a>";
             echo "</div>"; 
             echo "</div>"; 
