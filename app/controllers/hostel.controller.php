@@ -8,9 +8,9 @@ class Hostelcontroller{
     private $model;
     private $view;
 
-    public function __construct() {
+    public function __construct($res) {
         $this->model = new HostelModel();
-        $this->view = new HostelView();
+        $this->view = new HostelView($res->user);
     }
 
     public function showRoom() {
