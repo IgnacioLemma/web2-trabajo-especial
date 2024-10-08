@@ -48,13 +48,13 @@ switch ($params[0]) {
             $controller->showRoomDetails($id_habitacion);// Mostrar detalle de la habitación (item)
         } 
         break;
-    case 'ListCatergory':
-        $controller = new HostelController();
+    case 'ListCategory':
+        $controller = new HostelController($res);
         $controller->showListCategory(); // Mostrar listado de tipos (categoria)
         break;
     case 'ItemsCategory':
         if (isset($params[1])) { //Tomamos el tipo por url
-            $controller = new HostelController();
+            $controller = new HostelController($res);
             $tipo = $params[1];
             $controller->showItemsCategory($tipo); // Mostrar habitaciones por tipo
         } else {
