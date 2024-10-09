@@ -7,8 +7,5 @@ function sessionAuthMiddleware($res) {
             $res->user->id = $_SESSION['id_user'];
             $res->user->email = $_SESSION['email_user'];
             return;
-        } else {
-            header('Location: ' . BASE_URL . 'showLogin');
-            die();
         }
     }

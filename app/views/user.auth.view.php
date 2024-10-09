@@ -5,4 +5,8 @@ class User_auth_view{
     public function showLogin($error = ''){
         require_once 'templates/login.phtml';
     }
+    public function showSignup($error = '') {
+        require 'templates/form_signup.phtml';
+    }
+
 }

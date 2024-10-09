@@ -24,17 +24,13 @@
                         <a class="nav-link active" href="<?= BASE_URL ?>ListCatergory">Categorias</a>
                     </li>
                 </ul>
-                
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <?php if($this->user): ?>
+                        <li class="nav-item">
+                            <a class="btn btn-danger" href="<?= BASE_URL ?>logout">Salir</a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
             </div>
         </div>
     </nav>
-    <?php if($this->user): ?>
-                    <span class="navbar-text"><?= $this->user->email ?></span>
-                <?php endif; ?>
-                <?php if($this->user): ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="logout">Salir</a>
-                            </li>
-                        <?php endif; ?>
-    
-

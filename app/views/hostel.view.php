@@ -42,5 +42,10 @@ class HostelView {
         echo "</ul>";
         require_once './templates/footer.phtml';
     }
+
+    public function showError($error) {
+        require 'templates/error.phtml';
+    }
+
 }
 

@@ -16,16 +16,15 @@ class Auth_controller {
     }
 
     public function login(){
+        if(empty($_POST['email_usuario']) || !isset($_POST['email_usuario'])){
+            return $this->view->showLogin('No ha completado el campo "email"');
+        }
         if(empty($_POST['contraseña']) || !isset($_POST['contraseña'])){
             return $this->view->showLogin('No ha completado el campo "contraseña"');
         }
 
-        if(empty($_POST['email_usuario']) || !isset($_POST['email_usuario'])){
-            return $this->view->showLogin('No ha completado el campo "email"');
-        }
-
-        $password = $_POST['contraseña'];
         $email = $_POST['email_usuario'];
+        $password = $_POST['contraseña'];
         $userAuthDB = $this->model->getUserFromEmail($email);
 
         if($userAuthDB && password_verify($password, $userAuthDB->contraseña)){
@@ -37,5 +36,11 @@ class Auth_controller {
         } else {
             return $this->view->showLogin('Hubo un error 🐱‍💻');
         }
+    }
+
+    public function logout (){
+        session_start(); // Va a buscar la cookie
+        session_destroy(); // Borra la cookie que se buscó
+        header('Location: ' . BASE_URL);
     }
 }

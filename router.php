@@ -2,6 +2,7 @@
 
 require_once './libs/response.php';
 require_once './app/middlewares/session.auth.php';
+require_once './app/middlewares/verify.auth.middleware.php';
 require_once './app/controllers/auth.controller.php';
 require_once './app/controllers/hostel.controller.php';
 
@@ -37,11 +38,13 @@ switch ($params[0]) {
     //    break;
     case 'Rooms':
         sessionAuthMiddleware($res); // Chequea que el usuario esta logeado y redirigue al login
+        verifyAuthMiddleware($res);
         $controller = new HostelController($res);
         $controller->showRoom(); // Mostrar listado de habitaciones (item)
         break;
     case 'RoomsDetails':
         sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         if (isset($params[1])) {
             $controller = new HostelController($res);
             $id_habitacion = $params[1]; 
@@ -69,6 +72,10 @@ switch ($params[0]) {
             $controller = new Auth_controller();
             $controller->login();
             break;
+        case 'logout':
+            $controller = new Auth_controller();
+            $controller->logout();
+        
     default:
         echo "404 Page Not Found"; // pagina de error por hacer
         break;
