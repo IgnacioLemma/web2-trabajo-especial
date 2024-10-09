@@ -1,14 +1,19 @@
-
+<?php
+require_once 'templates/layouts/header.phtml';
+?>
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
-            <h2><?= htmlspecialchars($room->Nombre) ?></h2>
+            <h2><php?= htmlspecialchars($room->Nombre) ?></h2>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Tipo: <?= htmlspecialchars($room->Tipo) ?></h5>
-            <p class="card-text">Capacidad: <?= htmlspecialchars($room->Capacidad) ?> personas</p>
-            <p class="card-text">Precio: $<?= htmlspecialchars($room->Precio) ?></p>
+            <h5 class="card-title">Tipo: <php?= htmlspecialchars($room->Tipo) ?></h5>
+            <p class="card-text">Capacidad: <php?= htmlspecialchars($room->Capacidad) ?> personas</php>
+            <p class="card-text">Precio: $<php?= htmlspecialchars($room->Precio) ?></php>
             <a href='<?= BASE_URL ?>Rooms' class='btn btn-primary'>Volver a la lista de habitaciones</a>
         </div>
     </div>
 </div>
+<?php
+require_once 'templates/layouts/footer.phtml';
+?>

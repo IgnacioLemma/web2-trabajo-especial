@@ -1,0 +1,19 @@
+<?php
+require_once './templates/layouts/header.phtml';
+        echo "<div class='container'>";
+        echo "<h1 class='text-center mt-4'>Listado de Habitaciones</h1>";
+        echo "<div class='row'>";
+        foreach ($rooms as $room) {
+            echo "<div class='col-md-4 mb-4'>";
+            echo "<div class='card'>";
+            echo "<div class='card-body'>";
+            echo "<h5 class='card-title'>{$room->Nombre}</h5>";
+            echo "<img src='" . BASE_URL . "img/FotosHabitaciones/{$room->foto_habitacion}' class='card-img-top' alt='Imagen de {$room->Nombre}'>";
+            echo "<a href='" . BASE_URL . "RoomsDetails/" . $room->id_habitacion . "' class='btn btn-secondary'>Ver Detalles</a>";
+            echo "</div>"; 
+            echo "</div>"; 
+            echo "</div>"; 
+        }
+        echo "</div>"; 
+        echo "</div>";
+        require_once './templates/layouts/footer.phtml';
