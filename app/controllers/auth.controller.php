@@ -7,40 +7,67 @@ class Auth_controller {
     private $model;
     private $view;
 
-    public function __construct(){
+    public function __construct() {
         $this->view = new User_auth_view();
         $this->model = new UserAuth_model();
     }
-    public function showLogin(){
-        return $this->view->showLogin();
+
+    public function showLogin() {
+        return $this->view->showLogin(); // Muestra la vista de login
     }
 
-    public function login(){
-        if(empty($_POST['email_usuario']) || !isset($_POST['email_usuario'])){
+    public function login() {
+        // Verifica si los campos están vacíos
+        if (empty($_POST['email'])) {
             return $this->view->showLogin('No ha completado el campo "email"');
         }
-        if(empty($_POST['contraseña']) || !isset($_POST['contraseña'])){
+        if (empty($_POST['password'])) {
             return $this->view->showLogin('No ha completado el campo "contraseña"');
         }
 
-        $email = $_POST['email_usuario'];
-        $password = $_POST['contraseña'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        
+        // Obtiene el usuario de la base de datos por email
         $userAuthDB = $this->model->getUserFromEmail($email);
 
-        if($userAuthDB && password_verify($password, $userAuthDB->contraseña)){
-            session_start();
+        // Verifica si el usuario existe y la contraseña es correcta
+        if ($userAuthDB && password_verify($password, $userAuthDB->password)) {
+            session_start(); // Inicia la sesión
+            // Almacena información en la sesión
             $_SESSION['id_user'] = $userAuthDB->id_usuario;
-            $_SESSION['email_user'] = $userAuthDB->email_usuario;
-            $_SESSION['last_activity'] = time();
-            header('Location: ' . BASE_URL);
+            $_SESSION['email'] = $userAuthDB->email;
+            $_SESSION['last_activity'] = time(); // Marca la última actividad
+            header('Location: ' . BASE_URL); // Redirige a la página principal
+            exit; // Asegura que no se ejecute más código
         } else {
             return $this->view->showLogin('Hubo un error 🐱‍💻');
         }
     }
 
-    public function logout (){
-        session_start(); // Va a buscar la cookie
-        session_destroy(); // Borra la cookie que se buscó
-        header('Location: ' . BASE_URL);
+    public function showSignup($error = '') {
+        $this->view->showSignup($error); // Mostrar la vista de registro
+    }
+
+    public function signup() {
+        if(empty($_POST['email']) || !isset($_POST['email'])) {
+            return $this->view->showSignup('No ha completado el campo "email"');
+        }
+
+        if(empty($_POST['password']) || !isset($_POST['password'])) {
+            return $this->view->showSignup('No ha completado el campo "contraseña"');
+        }
+
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash de la contraseña
+
+        // Guardar el nuevo usuario en la base de datos
+        $userCreated = $this->model->createUser($email, $password);
+        
+        if ($userCreated) {
+            header('Location: ' . BASE_URL . 'login'); // Redirigir al login después de registrarse
+        } else {
+            return $this->view->showSignup('Email ya regristrado 🐱‍👤');
+        }
     }
 }

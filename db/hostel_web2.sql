@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2024 a las 01:00:36
+-- Tiempo de generación: 10-10-2024 a las 02:02:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -97,15 +97,15 @@ INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, 
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
-  `email_usuario` varchar(250) NOT NULL,
-  `contraseña` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `email` varchar(250) NOT NULL,
+  `password` char(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `email_usuario`, `contraseña`) VALUES
+INSERT INTO `usuarios` (`id_usuario`, `email`, `password`) VALUES
 (1, 'webadmin@tudai.ar', 'admin'),
 (2, 'noa@tudai.es', 'holamundo'),
 (3, 'hellotudai@web2.phtml', ' basededatos');
@@ -133,7 +133,7 @@ ALTER TABLE `reservas`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `email_usuario` (`email_usuario`);
+  ADD UNIQUE KEY `email_usuario` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -155,7 +155,7 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

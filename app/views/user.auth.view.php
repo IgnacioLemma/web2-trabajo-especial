@@ -6,7 +6,7 @@ class User_auth_view{
         require_once 'templates/login.phtml';
     }
     public function showSignup($error = '') {
-        require 'templates/form_signup.phtml';
+        require 'templates/signup.phtml';
     }
 
 }
