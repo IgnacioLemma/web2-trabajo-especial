@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <title> CarlitosHostel </title>
 </head>
 
@@ -20,16 +21,20 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= BASE_URL ?>Rooms">Habitaciones</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?= BASE_URL ?>ListCatergory">Categorias</a>
+                    <li class="nav-item">                               
+                        <a class="nav-link active" href="<?= BASE_URL ?>ListCategory">Categorias</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <?php if($this->user): ?>
-                        <li class="nav-item">
-                            <a class="btn btn-danger" href="<?= BASE_URL ?>logout">Salir</a>
-                        </li>
-                    <?php endif; ?>
+                <?php if($this->user): ?>
+                    <li class="nav-item">
+                        <a class="btn btn-danger" href="<?= BASE_URL ?>logout">Salir</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="btn btn-primary" href="<?= BASE_URL ?>showSignup">Registrarse</a>
+                    </li>
+                <?php endif; ?>
                 </ul>
             </div>
         </div>

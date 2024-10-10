@@ -26,7 +26,6 @@ switch ($params[0]) {
         $controller = new HostelController($res);
         $controller->showRoom(); // Mostrar listado de habitaciones (items)
         break;
-
     case 'RoomsDetails':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
@@ -38,14 +37,12 @@ switch ($params[0]) {
             echo "Error: No se proporcionó el ID de la habitación.";
         }
         break;
-
     case 'ListCategory':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
         $controller = new HostelController($res);
         $controller->showListCategory(); // Mostrar listado de tipos (categoría)
         break;
-
     case 'ItemsCategory':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
@@ -57,7 +54,6 @@ switch ($params[0]) {
             echo "Error: No se proporcionó el tipo de habitación.";
         }
         break;
-
     case 'showSignup':
         $controller = new Auth_controller();
         $controller->showSignup(); // Mostrar la vista de registro
@@ -66,12 +62,10 @@ switch ($params[0]) {
         $controller = new Auth_controller();
         $controller->signup(); // Manejar el registro de usuario
         break;
-        
     case 'showLogin':
         $controller = new Auth_controller();
         $controller->showLogin();
         break;
-
     case 'login':
         $controller = new Auth_controller();
         $controller->login();

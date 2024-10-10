@@ -65,7 +65,7 @@ class Auth_controller {
         $userCreated = $this->model->createUser($email, $password);
         
         if ($userCreated) {
-            header('Location: ' . BASE_URL . 'login'); // Redirigir al login después de registrarse
+            header('Location: ' . BASE_URL . 'showLogin'); // Redirigir al login después de registrarse
         } else {
             return $this->view->showSignup('Email ya regristrado 🐱‍👤');
         }
