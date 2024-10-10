@@ -5,8 +5,7 @@ class HostelView {
     public function __construct($user){
         $this->user = $user;
     }
-
-
+    
     // Muestra la lista de habitaciones
     public function showRooms($rooms) {
         require_once './templates/showRooms.phtml';

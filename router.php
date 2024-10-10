@@ -20,6 +20,10 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
+    //case 'Home': 
+        //$controller = new HostelController($res); 
+       // $controller->showHome(); 
+       // break;
     case 'Rooms':
         sessionAuthMiddleware($res); // Chequea que el usuario esté logueado
         verifyAuthMiddleware($res);
