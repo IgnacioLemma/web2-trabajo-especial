@@ -1,0 +1,23 @@
+    <?php
+    require_once './templates/header.phtml';
+    ?>
+
+    <div class="container">
+        <h1 class="text-center my-4">Habitaciones del Tipo: <?= htmlspecialchars($tipo) ?></h1>
+        <ul class="list-group">
+            <?php foreach ($rooms as $room) : ?>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong><?= htmlspecialchars($room->Nombre) ?></strong> - Precio: <?= htmlspecialchars($room->Precio) ?>
+                    </div>
+                    <a href="<?= BASE_URL . 'RoomsDetails/' . $room->id_habitacion ?>" class="btn btn-primary btn-sm">
+                        Ver Detalles
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+    <?php
+    require_once './templates/footer.phtml';
+    ?>

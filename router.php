@@ -40,11 +40,15 @@ switch ($params[0]) {
         break;
 
     case 'ListCategory':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new HostelController($res);
         $controller->showListCategory(); // Mostrar listado de tipos (categoría)
         break;
 
     case 'ItemsCategory':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         if (isset($params[1])) { // Tomamos el tipo por URL
             $controller = new HostelController($res);
             $tipo = $params[1];
@@ -72,6 +76,10 @@ switch ($params[0]) {
         $controller = new Auth_controller();
         $controller->login();
         break;
+    case 'logout':
+        $controller = new Auth_controller();
+        $controller->logout();
+    break;
     default:
         echo "404 Page Not Found"; // Página de error por hacer
         break;
