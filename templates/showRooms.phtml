@@ -1,19 +1,22 @@
 <?php
 require_once './templates/layouts/header.phtml';
-        echo "<div class='container'>";
-        echo "<h1 class='text-center mt-4'>Listado de Habitaciones</h1>";
-        echo "<div class='row'>";
-        foreach ($rooms as $room) {
-            echo "<div class='col-md-4 mb-4'>";
-            echo "<div class='card'>";
-            echo "<div class='card-body'>";
-            echo "<h5 class='card-title'>{$room->Nombre}</h5>";
-            echo "<img src='" . BASE_URL . "img/FotosHabitaciones/{$room->foto_habitacion}' class='card-img-top' alt='Imagen de {$room->Nombre}'>";
-            echo "<a href='" . BASE_URL . "RoomsDetails/" . $room->id_habitacion . "' class='btn btn-secondary'>Ver Detalles</a>";
-            echo "</div>"; 
-            echo "</div>"; 
-            echo "</div>"; 
-        }
-        echo "</div>"; 
-        echo "</div>";
-        require_once './templates/layouts/footer.phtml';
+?>
+<div class="container">
+    <h1 class="text-center mt-4">Listado de Habitaciones</h1>
+    <div class="row">
+        <?php foreach ($rooms as $room): ?>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="<?= BASE_URL ?>img/FotosHabitaciones/<?= htmlspecialchars($room->foto_habitacion) ?>" class="card-img-top" alt="Imagen de <?= htmlspecialchars($room->Nombre) ?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= htmlspecialchars($room->Nombre) ?></h5>
+                        <a href="<?= BASE_URL ?>RoomsDetails/<?= $room->id_habitacion ?>" class="btn btn-secondary">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<?php
+require_once './templates/layouts/footer.phtml';
+?>
