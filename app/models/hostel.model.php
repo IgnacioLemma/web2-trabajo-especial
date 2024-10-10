@@ -7,6 +7,7 @@ class HostelModel {
         $this->db = new PDO('mysql:host=localhost;dbname=hostel_web2;charset=utf8', 'root', '');
     }
 
+// A
     // Obtener todas las habitaciones
     public function getRooms() {
         $query = $this->db->prepare('SELECT * FROM habitaciones');
@@ -20,6 +21,15 @@ class HostelModel {
         $query->execute([$id_habitacion]);
         return $query->fetch(PDO::FETCH_OBJ); // Devolver un objeto con los datos de la habitación
     }
+
+    // agregar un nuevo ítem lado N de la relación
+    public function addRoom($roomData) {
+        $query = $this->db->prepare("INSERT INTO habitaciones (Nombre, Tipo, Capacidad, Precio, foto_habitacion) VALUES (?, ?, ?, ?, ?)");
+        return $query->execute([$roomData['nombre'], $roomData['Tipo'], $roomData['capacidad'], $roomData['precio'], $roomData['foto_habitacion']]);
+    }
+    
+
+// B
 
     //Obtenemos las categorias
     public function showListCategory() {

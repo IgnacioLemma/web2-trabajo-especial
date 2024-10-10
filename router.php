@@ -78,6 +78,18 @@ switch ($params[0]) {
         $controller = new Auth_controller();
         $controller->logout();
     break;
+    case 'showAddRoom':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        $controller->showAddRoomForm(); 
+        break;
+    case 'addRoom':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        $controller->addRoom();
+        break;
     default:
         echo "404 Page Not Found"; // Página de error por hacer
         break;

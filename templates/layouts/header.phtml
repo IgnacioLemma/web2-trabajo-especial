@@ -24,6 +24,11 @@
                     <li class="nav-item">                               
                         <a class="nav-link active" href="<?= BASE_URL ?>ListCategory">Categorias</a>
                     </li>
+                    <?php if($this->user): ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="<?= BASE_URL ?>showAddRoom">Agregar Habitación</a>
+                    </li>
+                <?php endif; ?>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <?php if($this->user): ?>

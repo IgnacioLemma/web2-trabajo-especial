@@ -1,0 +1,38 @@
+<?php
+    require_once 'templates/layouts/header.phtml';
+?>
+<form method="POST" action="addRoom" class="container mt-4">
+    <h2>Completar los datos de la nueva Habitación</h2>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre de la habitación" required>
+    </div>
+    <div class="mb-3">
+        <label for="capacidad" class="form-label">Capacidad</label>
+        <input type="number" name="capacidad" class="form-control" id="capacidad" placeholder="Capacidad de la habitación" required>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="number" name="precio" class="form-control" id="precio" placeholder="Precio" required>
+    </div>
+    <div class="mb-3">
+        <label for="tipo" class="form-label">Tipo</label>
+        <select name="Tipo" class="form-select" id="tipo" required>
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <?php foreach ($categorias as $categoria): ?>
+                <option value="<?php echo htmlspecialchars($categoria['Tipo']); ?>">
+                    <?php echo htmlspecialchars($categoria['Tipo']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="foto_habitacion" class="form-label">URL de la Foto</label>
+        <input type="text" name="foto_habitacion" class="form-control" id="foto_habitacion" placeholder="URL de la imagen" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Agregar Habitación</button>
+</form>
+<?php
+    require_once './templates/layouts/footer.phtml';
+?>
