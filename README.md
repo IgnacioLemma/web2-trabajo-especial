@@ -24,7 +24,7 @@
 
 ## Diagrama
 
-![Diagrama DER de la base de datos](./img/DER/diagrama_entrega1.png)
+![Diagrama DER de la base de datos](./public/img/DER/diagrama_entrega1.png)
 
 > Diagrama DER de la base de datos
 
