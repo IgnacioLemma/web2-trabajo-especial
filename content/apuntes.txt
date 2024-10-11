@@ -42,6 +42,9 @@ Requerimientos Técnicos (no funcionales):
 ✅❓Las URL deben ser semánticas (Checkear los nombres descriptivos de las URL, el .htacess implementado)
 ✅El sitio debe incluir el archivo sql para instalar la base de datos.
 
+ADDS:
+❌Implementar un home
+
 Notas:
 
 ❓❓❓*Autenticación y seguridad: Se recomienda comenzar con la sección “privada” sin autenticación. Una vez dada la clase de seguridad es muy sencillo protegerlo con usuario y contraseña.
