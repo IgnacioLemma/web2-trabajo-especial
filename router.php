@@ -1,5 +1,5 @@
 <?php
-require_once './config.php';
+require_once './config/config.php';
 require_once './libs/response.php';
 require_once './app/middlewares/session.auth.php';
 require_once './app/middlewares/verify.auth.middleware.php';
