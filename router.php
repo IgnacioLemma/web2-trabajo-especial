@@ -90,6 +90,12 @@ switch ($params[0]) {
         $controller = new HostelController($res);
         $controller->addRoom();
         break;
+    case 'deleteRoom':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        $controller->deleteRoom();
+        break;
     default:
         echo "404 Page Not Found"; // Página de error por hacer
         break;
