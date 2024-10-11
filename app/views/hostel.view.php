@@ -6,6 +6,10 @@ class HostelView {
         $this->user = $user;
     }
 
+    public function showErrorPage() {
+        require_once './templates/errorPage.phtml'; // Asegúrate de que la ruta sea correcta
+    }
+
 // A
     // Muestra la lista de habitaciones
     public function showRooms($rooms) {

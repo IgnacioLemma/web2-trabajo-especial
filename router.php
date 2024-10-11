@@ -96,7 +96,11 @@ switch ($params[0]) {
         $controller = new HostelController($res);
         $controller->deleteRoom();
         break;
+    case 'errorPage':
+        $controller = new HostelController($res);
+        $controller->errorPage(); // Muestra la página de error
+        break;
     default:
-        echo "404 Page Not Found"; // Página de error por hacer
+        header('Location: ' . BASE_URL . 'errorPage'); // Redirige a la página de error
         break;
 }

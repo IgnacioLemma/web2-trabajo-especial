@@ -13,6 +13,10 @@ class Hostelcontroller{
         $this->view = new HostelView($res->user);
     }
 
+    public function errorPage() {
+        $this->view->showErrorPage();
+    }
+
 // A
     public function showRoom() {
         $rooms = $this->model->getRooms(); // Obtiene todas las habitaciones
@@ -24,7 +28,7 @@ class Hostelcontroller{
         if ($room) {
             $this->view->showRoomDetails($room);
         } else {
-            echo "La habitación con el ID especificado no existe."; // Luego seria pagina de error
+            header('Location: ' . BASE_URL . 'errorPage');
         }
     }
 
