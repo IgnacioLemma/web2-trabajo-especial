@@ -21,12 +21,18 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= BASE_URL ?>Rooms">Habitaciones</a>
                     </li>
-                    <li class="nav-item">                               
+                    <li class="nav-item">
                         <a class="nav-link active" href="<?= BASE_URL ?>ListCategory">Categorias</a>
                     </li>
                     <?php if($this->user): ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= BASE_URL ?>showAddRoom">Agregar Habitación</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" href="<?= BASE_URL ?>showReservations">Ver tus reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="<?= BASE_URL ?>showAddReservation">Nueva reserva</a>
                     </li>
                 <?php endif; ?>
                 </ul>

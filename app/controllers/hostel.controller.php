@@ -94,4 +94,50 @@ class Hostelcontroller{
         $habitaciones = $this->model->getHabitacionesPorTipo($tipo); // Obtiene las habitaciones por tipo
         return $this->view->showItemsCategory($habitaciones, $tipo);
         }
+        public function showReservations() {
+            $reservations = $this->model->showReservation(); // Obtiene todas las reservas
+            $this->view->showReservations($reservations); // Pasa el array completo de reservas a la vista
+        }
+    public function showAddReservationForm() {
+        $rooms = $this->model->getRooms(); // Obtener las habitaciones
+        $this->view->addReservations($rooms); // Pasar los datos a la vista
     }
+    
+    public function addReservation(){
+        // Verificar que todos los campos requeridos estén presentes y no vacíos
+        if (!isset($_POST['id_habitacion']) || empty(trim($_POST['id_habitacion']))) {
+            return $this->view->showError('Falta seleccionar la habitación');
+        }
+        if (!isset($_POST['nombre_cliente']) || empty(trim($_POST['nombre_cliente']))) {
+            return $this->view->showError('Falto completar el nombre');
+        }
+        if (!isset($_POST['Check_in']) || empty(trim($_POST['Check_in']))) {
+            return $this->view->showError('Falto completar el Check_in');
+        }
+        if (!isset($_POST['Check_out']) || empty(trim($_POST['Check_out']))) {
+            return $this->view->showError('Falto completar el Check_out');
+        }
+
+        $id_habitacion = $_POST['id_habitacion'];
+        $nombre_cliente = $_POST['nombre_cliente'];
+        $Check_in = $_POST['Check_in'];
+        $Check_out = $_POST['Check_out'];
+    
+        $this->model->addReservation($id_habitacion, $nombre_cliente, $Check_in, $Check_out);
+        header('Location: ' . BASE_URL . 'showReservations');
+        exit(); // Asegúrate de detener la ejecución después de la redirección
+    }
+    public function deleteReservation() {
+        if (!isset($_GET['id_reserva'])) {
+            $this->view->showError('ID de reserva no especificado.');
+            return;
+        }
+        $id_reserva = $_GET['id_reserva'];
+        if ($this->model->deleteReservation($id_reserva)) {
+            header('Location: ' . BASE_URL . 'showReservations');
+        } else {
+            $this->view->showError('Error al eliminar la reserva.');
+        }
+        exit(); // Detener la ejecución después de la redirección
+    }
+}

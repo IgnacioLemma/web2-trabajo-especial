@@ -1,0 +1,30 @@
+<?php require_once './templates/layouts/header.phtml'; ?>
+
+<h1>Listado de Reservas</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Habitación</th>
+            <th>Cliente</th>
+            <th>Check-in</th>
+            <th>Check-out</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($reservations as $reservation): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($reservation->id_habitacion); ?></td>
+                <td><?php echo htmlspecialchars($reservation->nombre_cliente); ?></td>
+                <td><?php echo htmlspecialchars($reservation->Check_in); ?></td>
+                <td><?php echo htmlspecialchars($reservation->Check_out); ?></td>
+                <td>
+                    <a href="<?php echo BASE_URL . 'deleteReservation?id_reserva=' . $reservation->id_reserva; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta reserva?');">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php require_once './templates/layouts/footer.phtml'; ?>

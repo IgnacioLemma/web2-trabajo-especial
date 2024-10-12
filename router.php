@@ -96,6 +96,31 @@ switch ($params[0]) {
         $controller = new HostelController($res);
         $controller->deleteRoom();
         break;
+    //ABM B
+    case "showReservations":
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        $controller->showReservations(); // Muestra la lista de reservas
+        break;
+    case "showAddReservation":
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        $controller->showAddReservationForm(); // Muestra el formulario de reserva
+        break;
+    case "addReservation":
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new Hostelcontroller($res);
+        $controller -> addReservation();
+        break;
+    case "deleteReservation":
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        $controller->deleteReservation();
+        break;
     //error page
     case 'errorPage':
         $controller = new HostelController($res);

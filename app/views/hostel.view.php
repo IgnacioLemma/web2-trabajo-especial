@@ -33,7 +33,14 @@ class HostelView {
     public function showItemsCategory($rooms, $tipo) {
         require_once './templates/pages/Items_category.phtml';
     }
-
+    //Mostrar reservas
+    public function showReservations($reservations) {
+        require_once './templates/pages/showReservations.phtml';
+    }
+    //Mostrar fromualrio para hacer una reserva
+    public function addReservations($rooms){
+        require_once './templates/pages/addReservations.phtml';
+    }
     public function showError($error) {
         require_once 'templates/errors/error.phtml';
     }

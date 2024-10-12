@@ -1,0 +1,29 @@
+<?php require_once "./templates/layouts/header.phtml" ?>
+<h1>Reserva de Habitación</h1>
+<form method="post" action="<?php echo BASE_URL . 'addReservation'; ?>">
+    <div class="mb-3">
+        <label for="id_habitacion">Habitación</label>
+        <select name="id_habitacion" id="id_habitacion" class="form-select" required>
+            <option value="" disabled selected>Seleccione una habitación</option>
+            <?php foreach ($rooms as $room): ?>
+                <option value="<?php echo htmlspecialchars($room->id_habitacion); ?>">
+                    <?php echo htmlspecialchars($room->Nombre); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="nombre_cliente">Nombre</label>
+        <input type="text" name="nombre_cliente" id="nombre_cliente" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="Check_in">Check-in</label>
+        <input type="date" name="Check_in" id="Check_in" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="Check_out">Check-out</label>
+        <input type="date" name="Check_out" id="Check_out" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Reservar</button>
+</form>
+<?php require_once "./templates/layouts/footer.phtml" ?>
