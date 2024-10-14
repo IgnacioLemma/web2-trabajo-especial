@@ -133,11 +133,11 @@ class Hostelcontroller{
         exit(); // Asegúrate de detener la ejecución después de la redirección
     }
     public function deleteReservation() {
-        if (!isset($_GET['id_reserva'])) {
+        if (!isset($_POST['id_reserva'])) {
             $this->view->showError('ID de reserva no especificado.');
             return;
         }
-        $id_reserva = $_GET['id_reserva'];
+        $id_reserva = $_POST['id_reserva'];
         if ($this->model->deleteReservation($id_reserva)) {
             header('Location: ' . BASE_URL . 'showReservations');
         } else {
