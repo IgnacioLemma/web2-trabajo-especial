@@ -6,6 +6,12 @@ class HostelView {
         $this->user = $user;
     }
 
+    public function showHome($rooms){
+        require_once './templates/pages/home.phtml';
+    }
+    public function showError($error) {
+        require_once 'templates/errors/error.phtml';
+    }
     public function showErrorPage() {
         require_once './templates/errors/errorPage.phtml'; // Asegúrate de que la ruta sea correcta
     }
@@ -41,9 +47,5 @@ class HostelView {
     public function addReservations($rooms){
         require_once './templates/pages/addReservations.phtml';
     }
-    public function showError($error) {
-        require_once 'templates/errors/error.phtml';
-    }
-
 }
 

@@ -13,6 +13,11 @@ class Hostelcontroller{
         $this->view = new HostelView($res->user);
     }
 
+    public function showHome() {
+        $rooms = $this->model->getRooms(); 
+        return $this->view->showHome($rooms);
+    }
+
     public function errorPage() {
         $this->view->showErrorPage();
     }

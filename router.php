@@ -20,19 +20,18 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
-    //case 'Home': 
-        //$controller = new HostelController($res); 
-       // $controller->showHome(); 
-       // break;
+    case 'Home': 
+        sessionAuthMiddleware($res);
+        $controller = new HostelController($res); 
+        $controller->showHome(); 
+        break;
     case 'Rooms':
-        sessionAuthMiddleware($res); // Chequea que el usuario esté logueado
-        verifyAuthMiddleware($res);
+        sessionAuthMiddleware($res);
         $controller = new HostelController($res);
         $controller->showRoom(); // Mostrar listado de habitaciones (items)
         break;
     case 'RoomsDetails':
         sessionAuthMiddleware($res);
-        verifyAuthMiddleware($res);
         if (isset($params[1])) { // Si es false entra a la pagina de error
             $controller = new HostelController($res);
             $id_habitacion = $params[1]; 
@@ -41,13 +40,11 @@ switch ($params[0]) {
         break;
     case 'ListCategory':
         sessionAuthMiddleware($res);
-        verifyAuthMiddleware($res);
         $controller = new HostelController($res);
         $controller->showListCategory(); // Mostrar listado de tipos (categoría)
         break;
     case 'ItemsCategory':
         sessionAuthMiddleware($res);
-        verifyAuthMiddleware($res);
         if (isset($params[1])) { // Tomamos el tipo por URL
             $controller = new HostelController($res);
             $tipo = $params[1];
