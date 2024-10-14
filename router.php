@@ -11,7 +11,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 
 $res = new Response(); // Utiliza las respuestas HTTP
 
-$action = 'Rooms'; // Acción por defecto si no se envía ninguna
+$action = 'Home'; // Acción por defecto si no se envía ninguna
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
