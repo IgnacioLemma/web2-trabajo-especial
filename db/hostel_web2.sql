@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2024 a las 00:20:58
+-- Tiempo de generación: 15-10-2024 a las 00:57:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `habitaciones` (
 --
 
 INSERT INTO `habitaciones` (`id_habitacion`, `Nombre`, `Tipo`, `Capacidad`, `Precio`, `foto_habitacion`) VALUES
-(1, 'Habitación Individual - Vista al Mar', 'Individual', 1, 500, 'imagen_habitacion_102.jpg'),
+(1, 'Habitación Individual - Vista al Mar', 'Individual', 1, 500, 'imagen_habitacion_101.jpg'),
 (2, 'Habitación Doble - Cama King', 'Doble', 2, 750, 'imagen_habitacion_102.jpg'),
 (3, 'Habitación Doble - Cama Queen', 'Doble', 2, 600, 'imagen_habitacion_103.jpg'),
 (4, 'Suite - Lujo en París', 'Suite', 4, 1500, 'imagen_habitacion_104.jpg'),
@@ -84,8 +84,11 @@ CREATE TABLE `reservas` (
 INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, `nombre_cliente`, `id_usuario`) VALUES
 (4, 1, '2024-10-01', '2024-10-05', 'Juan', 1),
 (7, 1, '2024-10-03', '2024-10-07', 'Marisa', 1),
+(8, 4, '2024-10-03', '2024-10-20', 'Edena', 1),
 (11, 3, '2024-10-02', '2024-10-18', 'Noa', 2),
-(19, 4, '2024-09-20', '2024-09-25', 'hola mundo', 3);
+(16, 5, '2024-10-01', '2024-10-25', 'Jorge', 1),
+(19, 4, '2024-09-20', '2024-09-25', 'hola mundo', 3),
+(22, 5, '2025-02-03', '2025-03-06', 'test 2', 0);
 
 -- --------------------------------------------------------
 
@@ -95,9 +98,9 @@ INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, 
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `password` char(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `email` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` char(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -107,10 +110,8 @@ INSERT INTO `usuarios` (`id_usuario`, `email`, `password`) VALUES
 (1, 'webadmin@tudai.ar', 'admin'),
 (2, 'noa@tudai.es', 'holamundo'),
 (3, 'hellotudai@web2.phtml', ' basededatos'),
-(11, 'test@test.test', '$2y$10$t.3qjCcv1pwb4n.s5s35dejmtVMU5OIATrNQ3wNdIUOMWhfeHlHo2'),
-(12, 'webadmin@unicen.tudai', '$2y$10$2FvvuzjUGg/L6dL516eFS.WpoO9.exfAOzE/cDFY0ohlf0iDHS8j.'),
-(13, 'hola@mundo', '$2y$10$RgWoYKbCnclfHYkA8c0REelRti5GKlnzmBhYV24zWZz1eDHiaLrSG'),
-(14, 'prueba@prueba.com', '$2y$10$LFajo8hF39exX9iRugfXXuYftsAlBrX4WmmdGypcMwXvVmcHfE5k.');
+(0, 'barrionuevonoa@gmail.com', '$2y$10$VaTFknJTpxezH.PwM2PwgOT23dvWODo33vqE/nJ1e8BJpN3.trBW2'),
+(0, 'test@tudai.com', '$2y$10$WW281rLvOyiCcW8Gt1rBzuoFFhTEfZ62PaI5hZtQyPJILkVxF9nFO');
 
 --
 -- Índices para tablas volcadas
@@ -127,37 +128,17 @@ ALTER TABLE `habitaciones`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`),
-  ADD KEY `id_habitacion` (`id_habitacion`),
-  ADD KEY `id_usuario` (`id_usuario`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `email_usuario` (`email`);
+  ADD KEY `id_habitacion` (`id_habitacion`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `habitaciones`
---
-ALTER TABLE `habitaciones`
-  MODIFY `id_habitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
@@ -167,8 +148,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_habitacion`) REFERENCES `habitaciones` (`id_habitacion`),
-  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_habitacion`) REFERENCES `habitaciones` (`id_habitacion`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
