@@ -14,7 +14,7 @@ require_once './templates/layouts/header.phtml';
                         <?php if($this->user): ?>
                         <form method="POST" action="<?= BASE_URL ?>deleteRoom" style="display:inline;">
                                 <input type="hidden" name="id_habitacion" value="<?= $room->id_habitacion ?>">
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button type="submit" class="btn btn-danger" >Eliminar</button>
                         </form>
                         <?php endif; ?>
                     </div>
