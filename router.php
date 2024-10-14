@@ -120,6 +120,7 @@ switch ($params[0]) {
         break;
     //error page
     case 'errorPage':
+        sessionAuthMiddleware($res);
         $controller = new HostelController($res);
         $controller->errorPage(); // Muestra la página de error
         break;
