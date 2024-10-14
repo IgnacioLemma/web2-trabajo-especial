@@ -31,7 +31,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
     ✅Agregar Categorías
     ✅Eliminar Categorias
     ❌Editar Categorías
-    ✅❓❓❓Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url). (Creo que está implementado, hecho en el lado N de la relación por funcionalidades.)
+    ✅❓❓❓Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url).
 
 
 Base de datos:
@@ -44,7 +44,8 @@ Requerimientos Técnicos (no funcionales):
 ✅El sitio debe incluir el archivo sql para instalar la base de datos.
 
 ADDS:
-❌Implementar un home
+✅Implementar un home
+ ➡ ❌ mejorarlo
 
 Notas:
 
