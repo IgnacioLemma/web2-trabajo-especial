@@ -1,10 +1,11 @@
 Requerimientos Funcionales:
 Acceso público:
-❌Estas secciones pueden ser accedidas de manera pública, no es necesario loguearse.
+✅(❓)Estas secciones pueden ser accedidas de manera pública, no es necesario loguearse.
     ➡ Se puede quitar los Middleware para que puedan navegar y hacer una validación para saber si el usuario
         es null o no para mostrar ciertos apartados:
         sessionAuthMiddleware($res); // Chequea que el usuario esté logueado
         verifyAuthMiddleware($res);
+        [Por checkear si esta bien implementado]
 ✅(A) Listado de ítems: Se debe poder visualizar todos los ítems cargados
 ✅(A) Detalle de ítem: Se debe poder navegar y visualizar cada ítem particularmente 
 ✅(B) Listado de categorías: Se debe poder visualizar un listado con todas las categorías cargadas
