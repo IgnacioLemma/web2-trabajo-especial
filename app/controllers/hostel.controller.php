@@ -150,4 +150,35 @@ class Hostelcontroller{
         }
         exit(); // Detener la ejecución después de la redirección
     }
+    public function editReservation(){
+        $id_reserva = $_POST['id_reserva'];
+        if ($id_reserva) {
+            // Obtener los detalles de la reserva para editarlos
+            $reservation = $this->model->getReservationById($id_reserva);
+            if ($reservation) { // Asegúrate de que la reserva exista
+                $rooms = $this->model->getRooms(); // Obtener todas las habitaciones
+                require './templates/pages/editReservation.phtml'; // Cambia a tu vista de edición
+            } else {
+                echo "Reserva no encontrada.";
+            }
+        } else {
+            echo "ID de reserva no válido.";
+        }
+    }
+    
+    public function updateReservation() {
+        $id_reserva = $_POST['id_reserva'];
+        $id_habitacion = $_POST['id_habitacion'];
+        $nombre_cliente = $_POST['nombre_cliente'];
+        $check_in = $_POST['Check_in'];
+        $check_out = $_POST['Check_out'];
+    
+        if ($id_reserva && $id_habitacion && $nombre_cliente && $check_in && $check_out) {
+            if ($this->model->UpdateReservation($id_reserva, $id_habitacion, $nombre_cliente, $check_in, $check_out)) {
+                echo "Reserva actualizada exitosamente.";
+            } else {
+                echo "Error al actualizar la reserva.";
+            }
+        }
+    }
 }
