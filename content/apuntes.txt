@@ -31,7 +31,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
     ✅Agregar Categorías
     ✅Eliminar Categorias
     ❌Editar Categorías
-    ✅❓❓❓Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url).
+    ✅Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url).
 
 
 Base de datos:
