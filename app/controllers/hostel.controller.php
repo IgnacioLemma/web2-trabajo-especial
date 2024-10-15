@@ -89,6 +89,46 @@ class Hostelcontroller{
         }
     }
     
+    public function showEditRoomForm($id_habitacion) {
+        $room = $this->model->getRoomById($id_habitacion);
+        $categorias = $this->model->showListCategory();
+
+        if ($room) {
+            $this->view->showEditRoomForm($room, $categorias);
+        } else {
+            header('Location: ' . BASE_URL . 'errorPage');
+        }
+    }
+
+    public function updateRoom() {
+        if (empty($_POST['id_habitacion'])) {
+            return $this->view->showError('Falta el ID de la habitación.');
+        }
+
+        $requiredFields = ['nombre', 'Tipo', 'capacidad', 'precio', 'foto_habitacion'];
+        foreach ($requiredFields as $field) {
+            if (empty(trim($_POST[$field]))) {
+                return $this->view->showError("Falta completar el campo: " . ucfirst($field));
+            }
+        }
+
+        $roomData = [
+            'id_habitacion' => $_POST['id_habitacion'],
+            'nombre' => $_POST['nombre'],
+            'Tipo' => $_POST['Tipo'],
+            'capacidad' => $_POST['capacidad'],
+            'precio' => $_POST['precio'],
+            'foto_habitacion' => $_POST['foto_habitacion']
+        ];
+
+        if ($this->model->updateRoom($roomData['id_habitacion'], $roomData)) {
+            header('Location: ' . BASE_URL . 'Rooms');
+        } else {
+            $this->view->showError("Error al editar la habitación.");
+        }
+    }
+    
+    
 
 // B
     public function showListCategory() {

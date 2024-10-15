@@ -30,9 +30,14 @@ class HostelModel {
     
     public function deleteRoom($roomId) {
         $query = "DELETE FROM habitaciones WHERE id_habitacion = :id_habitacion";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':id_habitacion', $roomId, PDO::PARAM_INT);
-        return $stmt->execute();
+        $query = $this->db->prepare($query);
+        $query->bindParam(':id_habitacion', $roomId, PDO::PARAM_INT);
+        return $query->execute();
+    }
+
+    public function updateRoom($id, $data) {
+        $query = $this->db->prepare("UPDATE habitaciones SET Nombre = ?, Tipo = ?, Capacidad = ?, Precio = ?, foto_habitacion = ? WHERE id_habitacion = ?");
+        return $query->execute([$data['Nombre'], $data['Tipo'], $data['Capacidad'], $data['Precio'], $data['foto_habitacion'], $id]);
     }
     
 
