@@ -82,7 +82,7 @@ class Hostelcontroller{
     
         $roomId = $_POST['id_habitacion'];
     
-        if ($this->model->removeRoom($roomId)) {
+        if ($this->model->deleteRoom($roomId)) {
             header('Location: ' . BASE_URL . 'Rooms'); // Redirigir a la lista de habitaciones
         } else {
             $this->view->showError('Error al eliminar la habitación.');
