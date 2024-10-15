@@ -97,7 +97,12 @@ class Hostelcontroller{
     }
     public function showItemsCategory($tipo) {
         $habitaciones = $this->model->getHabitacionesPorTipo($tipo); // Obtiene las habitaciones por tipo
-        return $this->view->showItemsCategory($habitaciones, $tipo);
+
+        if($habitaciones){
+            return $this->view->showItemsCategory($habitaciones, $tipo);
+        }else{
+                return $this->errorPage();
+            }
         }
         public function showReservations() {
             $reservations = $this->model->showReservation(); // Obtiene todas las reservas
