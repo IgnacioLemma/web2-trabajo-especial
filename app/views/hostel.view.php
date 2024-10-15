@@ -30,6 +30,10 @@ class HostelView {
         require_once './templates/pages/addRoom.phtml';
     }
 
+    public function showEditRoomForm($room, $categorias){
+        require_once './templates/pages/editRoom.phtml';
+    }
+
 // B
     // Muestra la lista de categorías (tipos de habitaciones)
     public function showListCategory($categories) {

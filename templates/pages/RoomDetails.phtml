@@ -11,7 +11,7 @@ require_once 'templates/layouts/header.phtml';
             <h5 class="card-title">Tipo: <?= htmlspecialchars($room->Tipo) ?></h5>
             <p class="card-text">Capacidad: <?= htmlspecialchars($room->Capacidad) ?> personas</p>
             <p class="card-text">Precio: $<?= htmlspecialchars($room->Precio) ?></p>
-            <img src="<?= BASE_URL . htmlspecialchars($room->foto_habitacion) ?>" alt="<?= htmlspecialchars($room->Nombre) ?>" class="img-fluid" />
+            <img src="<?php echo $room->foto_habitacion; ?>" class="card-img-top" alt="<?php echo $room->Nombre; ?>">
             <br>
             <a href='<?= BASE_URL ?>Rooms' class='btn btn-primary'>Volver a la lista de habitaciones</a>
         </div>

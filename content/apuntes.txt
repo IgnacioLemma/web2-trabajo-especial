@@ -12,12 +12,12 @@ Acceso público:
 ✅(B) Listado de ítems por categoría: Se debe poder visualizar los ítems perteneciente a una categoría seleccionada
 
 Acceso administrador de datos:
-❌Debe existir una sección para la administración de datos, la cual es accedida solo a usuarios administradores del sitio.
+✅Debe existir una sección para la administración de datos, la cual es accedida solo a usuarios administradores del sitio.
 ✅(A) El usuario administrador debe loguearse con usuario y contraseña.
-✅❌❓ Debe exisitir al menos un administrador con usuario “webadmin” y contraseña “admin” para pruebas.
+✅ Debe exisitir al menos un administrador con usuario “webadmin” y contraseña “admin” para pruebas.
 ✅(B) El usuario debe poder desloguearse (logout)
 ✅Importante: En cada ítem siempre se debe mostrar el nombre de la categoría a la que pertenece.
-❓ Solo los usuarios logueados pueden modificar las categorías y los ítems.
+✅Solo los usuarios logueados pueden modificar las categorías y los ítems.
 
 Se debe crear servicios de ABM (alta/baja/modificación) para administrar los datos:
 (A) Administrar Ítems (entidad del lado N de la relación).
@@ -31,7 +31,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
     ✅Agregar Categorías
     ✅Eliminar Categorias
     ❌Editar Categorías
-    ✅❓❓❓Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url).
+    ✅Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url).
 
 
 Base de datos:
@@ -40,7 +40,7 @@ Base de datos:
 Requerimientos Técnicos (no funcionales):
 ✅Todos los HTML deben mostrarse utilizando plantillas (phtml o Smarty)
 ✅Todas las acciones realizadas en la página deben estar manejadas utilizando el patrón MVC.
-✅❓Las URL deben ser semánticas (Checkear los nombres descriptivos de las URL, el .htacess implementado)
+✅❓Las URL deben ser semánticas (Checkear los nombres descriptivos de las URL, el ✅.htacess implementado)
 ✅El sitio debe incluir el archivo sql para instalar la base de datos.
 
 ADDS:

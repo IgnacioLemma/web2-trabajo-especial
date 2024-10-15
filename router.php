@@ -93,6 +93,12 @@ switch ($params[0]) {
         $controller = new HostelController($res);
         $controller->deleteRoom();
         break;
+    case 'updateRoom':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        $controller->updateRoom();
+        break;    
     //ABM B
     case "showReservations":
         sessionAuthMiddleware($res);
