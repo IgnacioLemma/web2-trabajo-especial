@@ -28,7 +28,7 @@ class HostelModel {
         return $query->execute([$roomData['nombre'], $roomData['Tipo'], $roomData['capacidad'], $roomData['precio'], $roomData['foto_habitacion']]);
     }
     
-    public function removeRoom($roomId) {
+    public function deleteRoom($roomId) {
         $query = "DELETE FROM habitaciones WHERE id_habitacion = :id_habitacion";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id_habitacion', $roomId, PDO::PARAM_INT);
