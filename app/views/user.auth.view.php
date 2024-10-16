@@ -8,5 +8,4 @@ class User_auth_view{
     public function showSignup($error = '') {
         require_once 'templates/pages/signup.phtml';
     }
-
 }

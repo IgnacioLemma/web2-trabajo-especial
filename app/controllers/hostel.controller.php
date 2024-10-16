@@ -197,7 +197,7 @@ class Hostelcontroller{
             $reservation = $this->model->getReservationById($id_reserva);
             if ($reservation) { // Asegúrate de que la reserva exista
                 $rooms = $this->model->getRooms(); // Obtener todas las habitaciones
-                require './templates/pages/editReservation.phtml'; // Cambia a tu vista de edición
+                require_once './templates/pages/editReservation.phtml'; // Cambia a tu vista de edición
             } else {
                 echo "Reserva no encontrada.";
             }

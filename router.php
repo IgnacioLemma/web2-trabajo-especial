@@ -130,12 +130,6 @@ switch ($params[0]) {
         $controller = new HostelController($res);
         $controller->editReservation();
         break;
-    case "updateRoom":
-        sessionAuthMiddleware($res);
-        verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
-        $controller->updateReservation();
-        break;
     //error page
     case 'errorPage':
         sessionAuthMiddleware($res);
