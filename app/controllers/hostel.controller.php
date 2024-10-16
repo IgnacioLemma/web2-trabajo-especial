@@ -145,8 +145,8 @@ class Hostelcontroller{
             }
         }
         public function showReservations() {
-            $reservations = $this->model->showReservation(); // Obtiene todas las reservas
-            $this->view->showReservations($reservations); // Pasa el array completo de reservas a la vista
+            $reservations = $this->model->showReservation();
+            $this->view->showReservations($reservations);
         }
     public function showAddReservationForm() {
         $rooms = $this->model->getRooms(); // Obtener las habitaciones
@@ -154,7 +154,7 @@ class Hostelcontroller{
     }
     
     public function addReservation(){
-        // Verificar que todos los campos requeridos estén presentes y no vacíos
+        // Verificar que todos los campos no esten vacios
         if (!isset($_POST['id_habitacion']) || empty(trim($_POST['id_habitacion']))) {
             return $this->view->showError('Falta seleccionar la habitación');
         }
@@ -175,7 +175,7 @@ class Hostelcontroller{
     
         $this->model->addReservation($id_habitacion, $nombre_cliente, $Check_in, $Check_out);
         header('Location: ' . BASE_URL . 'showReservations');
-        exit(); // Asegúrate de detener la ejecución después de la redirección
+        exit();
     }
     public function deleteReservation() {
         if (!isset($_POST['id_reserva'])) {
@@ -188,37 +188,36 @@ class Hostelcontroller{
         } else {
             $this->view->showError('Error al eliminar la reserva.');
         }
-        exit(); // Detener la ejecución después de la redirección
+        exit();
     }
-    public function editReservation(){
-        $id_reserva = $_POST['id_reserva'];
-        if ($id_reserva) {
-            // Obtener los detalles de la reserva para editarlos
-            $reservation = $this->model->getReservationById($id_reserva);
-            if ($reservation) { // Asegúrate de que la reserva exista
-                $rooms = $this->model->getRooms(); // Obtener todas las habitaciones
-                require_once './templates/pages/editReservation.phtml'; // Cambia a tu vista de edición
-            } else {
-                echo "Reserva no encontrada.";
-            }
+    public function editReservation($id_reserva){
+        $reservation = $this->model->getReservationById($id_reserva);
+        $rooms = $this->model->getRooms(); // Método que deberías tener para obtener habitaciones
+        if ($reservation) {
+            $this->view->editReservationform($reservation, $rooms);
         } else {
-            echo "ID de reserva no válido.";
+            header('Location: ' . BASE_URL . 'errorPage');
         }
     }
     
     public function updateReservation() {
+        if (empty($_POST['id_reserva'])){
+            return $this->view->showError('Falta el ID de la reserva.');
+        }
         $id_reserva = $_POST['id_reserva'];
-        $id_habitacion = $_POST['id_habitacion'];
-        $nombre_cliente = $_POST['nombre_cliente'];
-        $check_in = $_POST['Check_in'];
-        $check_out = $_POST['Check_out'];
+        $id_habitacion = $_POST['id_habitacion'] ?? null;
+        $nombre_cliente = $_POST['nombre_cliente'] ?? null;
+        $check_in = $_POST['Check_in'] ?? null;
+        $check_out = $_POST['Check_out'] ?? null;
     
         if ($id_reserva && $id_habitacion && $nombre_cliente && $check_in && $check_out) {
             if ($this->model->UpdateReservation($id_reserva, $id_habitacion, $nombre_cliente, $check_in, $check_out)) {
-                echo "Reserva actualizada exitosamente.";
+                header('Location: ' . BASE_URL . 'showReservations');
             } else {
-                echo "Error al actualizar la reserva.";
+                $this->view->showError("Error al editar reserva.");
             }
-        }
+            } else {
+                return $this->view->showError("Completar todos los campos");
+            }
     }
 }

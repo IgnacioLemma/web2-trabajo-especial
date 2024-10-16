@@ -2,9 +2,9 @@
     require_once './templates/layouts/header.phtml';
 ?>
     <h1>Editar Reserva</h1>
-        <form method="POST" action="<?php echo BASE_URL . 'updateReservation'; ?>">
-            <input type="hidden" name="id_reserva" value="<?php echo htmlspecialchars($reservation->id_reserva); ?>">
-    
+    <form method="POST" action="<?php echo BASE_URL . 'updateReservation'; ?>">
+        <input type="hidden" name="id_reserva" value="<?php echo htmlspecialchars($reservation->id_reserva); ?>">
+
             <div class="mb-3">
                 <label for="id_habitacion">Habitación</label>
                 <select name="id_habitacion" id="id_habitacion" class="form-select" required>

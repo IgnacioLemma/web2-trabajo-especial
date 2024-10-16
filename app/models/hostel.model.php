@@ -74,13 +74,13 @@ class HostelModel {
     }
     //Buscar habitacion ID para la reserva
     public function getReservationById($id_reserva) {
-        $query = $this->db->prepare("SELECT * FROM reservas WHERE id_reserva = ?");
+        $query = $this->db->prepare('SELECT * FROM reservas WHERE id_reserva = ?');
         $query->execute([$id_reserva]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
     
     public function UpdateReservation($id_reserva, $id_habitacion, $nombre_cliente, $check_in, $check_out) {
-        $query = $this->db->prepare("UPDATE reservas SET id_habitacion = ?, nombre_cliente = ?, Check_in = ?, Check_out = ? WHERE id_reserva = ?");
+        $query = $this->db->prepare('UPDATE reservas SET id_habitacion = ?, nombre_cliente = ?, Check_in = ?, Check_out = ? WHERE id_reserva = ?');
         return $query->execute([$id_habitacion, $nombre_cliente, $check_in, $check_out, $id_reserva]);
     }
 }

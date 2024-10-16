@@ -74,6 +74,6 @@ class Auth_controller {
         session_start(); // Inicia la sesión para poder destruirla
         session_destroy(); // Destruye la sesión
         header('Location: ' . BASE_URL); // Va al home
-        exit; // Asegura que no se ejecute más código
+        exit;
     }
 }

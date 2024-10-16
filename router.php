@@ -128,7 +128,7 @@ switch ($params[0]) {
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
         $controller = new HostelController($res);
-        $controller->editReservation();
+        $controller->updateReservation();
         break;
     //error page
     case 'errorPage':
