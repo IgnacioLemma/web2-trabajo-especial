@@ -172,6 +172,10 @@ class Hostelcontroller{
         $nombre_cliente = $_POST['nombre_cliente'];
         $Check_in = $_POST['Check_in'];
         $Check_out = $_POST['Check_out'];
+
+        if (strtotime($Check_out) < strtotime($Check_in)) {
+            return $this->view->showError('La fecha de Check-out debe ser posterior o igual a la de Check-in');
+        }    
     
         $this->model->addReservation($id_habitacion, $nombre_cliente, $Check_in, $Check_out);
         header('Location: ' . BASE_URL . 'showReservations');
