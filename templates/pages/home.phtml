@@ -1,20 +1,20 @@
-<?php require_once 
-"./templates/layouts/header.phtml";
+<?php 
+require_once "./templates/layouts/header.phtml"; 
 ?>
 <main class="container mt-5">
     <section class="room-list">
-        <h2 class="text-center mb-4">Nuestras Habitaciones</h2>
-        <div class="row">
-            <?php foreach (array_slice($rooms, 0, 6) as $room): // Mostrar solo las 5 habitaciones más recientes ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="<?php echo $room->foto_habitacion; ?>" class="card-img-top" alt="<?php echo $room->Nombre; ?>">
+        <h2 class="text-center mb-5">Habitaciones destacadas</h2>
+        <div class="row g-4">
+            <?php foreach (array_slice($rooms, 0, 6) as $room): // Mostrar solo las 6 habitaciones más recientes ?>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="<?php echo htmlspecialchars($room->foto_habitacion); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($room->Nombre); ?>">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $room->Nombre; ?></h5>
-                            <p class="card-text"><strong>Tipo:</strong> <?php echo $room->Tipo; ?></p>
-                            <p class="card-text"><strong>Capacidad:</strong> <?php echo $room->Capacidad; ?></p>
-                            <p class="card-text"><strong>Precio por noche:</strong> $<?php echo $room->Precio; ?></p>
-                            <a href="<?php echo BASE_URL . 'RoomsDetails/' . $room->id_habitacion; ?>" class="btn btn-primary">Ver Detalles</a>
+                            <h5 class="card-title"><?php echo htmlspecialchars($room->Nombre); ?></h5>
+                            <p class="card-text"><strong>Tipo:</strong> <?php echo htmlspecialchars($room->Tipo); ?></p>
+                            <p class="card-text"><strong>Capacidad:</strong> <?php echo htmlspecialchars($room->Capacidad); ?> personas</p>
+                            <p class="card-text"><strong>Precio por noche:</strong> $<?php echo number_format($room->Precio, 2); ?></p>
+                            <a href="<?php echo BASE_URL . 'RoomsDetails/' . htmlspecialchars($room->id_habitacion); ?>" class="btn btn-primary w-100 mt-3">Ver Detalles</a>
                         </div>
                     </div>
                 </div>
@@ -23,5 +23,5 @@
     </section>
 </main>
 <?php 
-require_once "./templates/layouts/footer.phtml" 
+require_once "./templates/layouts/footer.phtml";
 ?>
