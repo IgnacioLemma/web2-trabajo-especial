@@ -190,7 +190,7 @@ class Hostelcontroller{
         }
         exit();
     }
-    public function editReservation($id_reserva){
+    public function editReservation($id_reserva,$rooms){
         $reservation = $this->model->getReservationById($id_reserva);
         $rooms = $this->model->getRooms(); // Método que deberías tener para obtener habitaciones
         if ($reservation) {
