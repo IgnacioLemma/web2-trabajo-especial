@@ -5,7 +5,7 @@ Acceso público:
         es null o no para mostrar ciertos apartados:
         sessionAuthMiddleware($res); // Chequea que el usuario esté logueado
         verifyAuthMiddleware($res);
-        ❓[Por checkear si esta bien implementado]
+        ✅[Por checkear si esta bien implementado]
 ✅(A) Listado de ítems: Se debe poder visualizar todos los ítems cargados
 ✅(A) Detalle de ítem: Se debe poder navegar y visualizar cada ítem particularmente 
 ✅(B) Listado de categorías: Se debe poder visualizar un listado con todas las categorías cargadas
@@ -23,7 +23,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
 (A) Administrar Ítems (entidad del lado N de la relación).
     ✅Lista de Items
     ✅Agregar Items
-        ✅❓❓❓Al agregar Items (Noticias/Productos/…) se debe poder elegir la categoría a la que pertenecen utilizando un select que muestre el nombre de la misma. (Creo que está implementado.)
+        ✅ Al agregar Items (Noticias/Productos/…) se debe poder elegir la categoría a la que pertenecen utilizando un select que muestre el nombre de la misma.
     ✅Eliminar Items
     ✅Editar Items
 (B) Administrar Categorías (entidad del lado 1 de la relación)
@@ -36,11 +36,12 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
 
 Base de datos:
 ✅config.php
+❌❓ deploy
 
 Requerimientos Técnicos (no funcionales):
 ✅Todos los HTML deben mostrarse utilizando plantillas (phtml o Smarty)
 ✅Todas las acciones realizadas en la página deben estar manejadas utilizando el patrón MVC.
-✅❓Las URL deben ser semánticas (Checkear los nombres descriptivos de las URL, el ✅.htacess implementado)
+✅Las URL deben ser semánticas (Checkear los nombres descriptivos de las URL, el ✅.htacess implementado)
 ✅El sitio debe incluir el archivo sql para instalar la base de datos.
 
 ADDS:
@@ -53,11 +54,11 @@ Notas:
 ✅**Vistas: Se recomienda mantener una UI muy sencilla hasta que se dé la clase de Templates.
 
 Pautas de corrección:
-❓❓❓buenas prácticas (Checkear)
-❓❓❓lección apropiada de cada tecnología para cada punto a resolver (Checkear)
+✅❓buenas prácticas
+✅lección apropiada de cada tecnología para cada punto a resolver (Checkear)
 ✅correcta división de responsabilidades en las clases
 ❓❓❓no repetición de código
-❌❓ identificadores (nombres de clases, variables, etc) descriptivos (Hay que revisarlos.)
+✅❓ identificadores (nombres de clases, variables, etc) descriptivos (Hay que revisarlos.)
 
 
 Entrega:
