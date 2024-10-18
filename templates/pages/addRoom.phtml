@@ -17,14 +17,7 @@
     </div>
     <div class="mb-3">
         <label for="tipo" class="form-label">Tipo</label>
-        <select name="Tipo" class="form-select" id="tipo" required>
-            <option value="" disabled selected>Selecciona una categoría</option>
-            <?php foreach ($categorias as $categoria): ?>
-                <option value="<?php echo htmlspecialchars($categoria['Tipo']); ?>">
-                    <?php echo htmlspecialchars($categoria['Tipo']); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
+        <input type="text" name="tipo" class="form-control" id="tipo" placeholder="Tipo de Habitación" required>
     </div>
     <div class="mb-3">
         <label for="foto_habitacion" class="form-label">URL de la Foto</label>

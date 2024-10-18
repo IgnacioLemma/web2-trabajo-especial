@@ -48,7 +48,7 @@ class Hostelcontroller{
         if (!isset($_POST['nombre']) || empty(trim($_POST['nombre']))) {
             return $this->view->showError('Falta completar el nombre de la habitación');
         }
-        if (!isset($_POST['Tipo']) || empty(trim($_POST['Tipo']))) {
+        if (!isset($_POST['tipo']) || empty(trim($_POST['tipo']))) {
             return $this->view->showError('Falta seleccionar el tipo de habitación');
         }
         if (!isset($_POST['capacidad']) || empty(trim($_POST['capacidad']))) {
@@ -63,7 +63,7 @@ class Hostelcontroller{
 
         $roomData = [
             'nombre' => $_POST['nombre'],
-            'Tipo' => $_POST['Tipo'],
+            'tipo' => $_POST['tipo'],
             'capacidad' => $_POST['capacidad'],
             'precio' => $_POST['precio'],
             'foto_habitacion' => $_POST['foto_habitacion']

@@ -105,7 +105,7 @@ class HostelModel {
     // ABM B
     public function addRoom($roomData) {
         $query = $this->db->prepare("INSERT INTO habitaciones (Nombre, Tipo, Capacidad, Precio, foto_habitacion) VALUES (?, ?, ?, ?, ?)");
-        return $query->execute([$roomData['nombre'], $roomData['Tipo'], $roomData['capacidad'], $roomData['precio'], $roomData['foto_habitacion']]);
+        return $query->execute([$roomData['nombre'], $roomData['tipo'], $roomData['capacidad'], $roomData['precio'], $roomData['foto_habitacion']]);
     }
     
     public function deleteRoom($roomId) {
