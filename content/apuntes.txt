@@ -32,7 +32,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
     ✅Eliminar Categorias
     ✅Editar Categorías
     ✅Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url).
-
+       ➡️ ❌ Opcional 
 
 Base de datos:
 ✅config.php
