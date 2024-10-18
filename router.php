@@ -4,7 +4,9 @@ require_once './libs/response.php';
 require_once './app/middlewares/session.auth.php';
 require_once './app/middlewares/verify.auth.middleware.php';
 require_once './app/controllers/auth.controller.php';
-require_once './app/controllers/hostel.controller.php';
+require_once './app/controllers/error.controller.php';
+require_once './app/controllers/reservations.controller.php';
+require_once './app/controllers/rooms.controller.php';
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -22,31 +24,31 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'Home': 
         sessionAuthMiddleware($res);
-        $controller = new HostelController($res); 
+        $controller = new RoomsController($res); 
         $controller->showHome(); 
         break;
     case 'Rooms':
         sessionAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new RoomsController($res);
         $controller->showRoom(); // Mostrar listado de habitaciones (items)
         break;
     case 'RoomsDetails':
         sessionAuthMiddleware($res);
         if (isset($params[1])) { // Si es false entra a la pagina de error
-            $controller = new HostelController($res);
+            $controller = new RoomsController($res);
             $id_habitacion = $params[1]; 
             $controller->showRoomDetails($id_habitacion); // Mostrar detalle de la habitación (item)
         }
         break;
     case 'ListCategory':
         sessionAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new RoomsController($res);
         $controller->showListCategory(); // Mostrar listado de tipos (categoría)
         break;
     case 'ItemsCategory':
         sessionAuthMiddleware($res);
         if (isset($params[1])) { // Tomamos el tipo por URL
-            $controller = new HostelController($res);
+            $controller = new RoomsController($res);
             $tipo = $params[1];
             $controller->showItemsCategory($tipo); // Mostrar habitaciones por tipo
         } else {
@@ -78,25 +80,25 @@ switch ($params[0]) {
     case 'showAddRoom':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new RoomsController($res);
         $controller->showAddRoomForm(); 
         break;
     case 'addRoom':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new RoomsController($res);
         $controller->addRoom();
         break;
     case 'deleteRoom':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new RoomsController($res);
         $controller->deleteRoom();
         break;
     case 'editRoom':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new RoomsController($res);
         if (isset($_GET['id_habitacion'])) {
             $id_habitacion = $_GET['id_habitacion']; // Obtén el id de la habitación
             $controller->showEditRoomForm($id_habitacion);
@@ -107,38 +109,38 @@ switch ($params[0]) {
     case 'updateRoom':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new RoomsController($res);
         $controller->updateRoom(); 
         break; 
     //ABM A
     case "showReservations":
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new ReservationsController($res);
         $controller->showReservations(); // Muestra la lista de reservas
         break;
     case "showAddReservation":
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new ReservationsController($res);
         $controller->showAddReservationForm(); // Muestra el formulario de reserva
         break;
     case "addReservation":
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new Hostelcontroller($res);
+        $controller = new ReservationsController($res);
         $controller -> addReservation();
         break;
     case "deleteReservation":
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new ReservationsController($res);
         $controller->deleteReservation();
         break;
     case "editReservation":
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new ReservationsController($res);
         if (isset($_POST['id_reserva'])) {
             $id_reserva = $_POST['id_reserva']; // Obtén el id de la reserva
             $controller->editReservation($id_reserva);
@@ -149,8 +151,8 @@ switch ($params[0]) {
     case "updateReservation":
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
-        $controller = new HostelController($res);
-        $controller->updateReservation();
+        $controller = new ReservationsController($res);
+        $controller->updateReservation(); 
         break;
     //error page
     case 'errorPage':

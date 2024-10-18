@@ -1,13 +1,7 @@
 <?php
 
-class UserAuth_model {
-    private $db;
-
-    public function __construct() {
-        // Conexión a la base de datos con charset utf8mb4
-        $this->db = new PDO('mysql:host=localhost;dbname=hostel_web2;charset=utf8mb4', 'root', '');
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Para manejar errores
-    }
+require_once './app/models/hostel.model.php';
+class UserAuth_model extends HostelModel{
 
     // Método para obtener un usuario a partir del email
     public function getUserFromEmail($email) {

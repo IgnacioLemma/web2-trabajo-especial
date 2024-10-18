@@ -1,18 +1,16 @@
 <?php
-require_once './config/config.php';
 class HostelModel {
     protected $db;
-
-    public function __construct() {
+function __construct() {
         $this->db = new PDO(
-            "mysql:host=" . MYSQL_HOST . ";dbname=" . MYSQL_DB . ";charset=utf8",
+            'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB . ';charset=utf8',
             MYSQL_USER,
             MYSQL_PASS
         );
-        $this->_deploy();
+        $this->deploy();
     }
 
-    private function _deploy() {
+    public function deploy() {
         $query = $this->db->query('SHOW TABLES');
         $tables = $query->fetchAll();
 
@@ -83,84 +81,8 @@ class HostelModel {
                 `email` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
                 `password` char(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-        END;
-        $this->db->exec($sql);
-    }
-}
-
-    // Obtener todas las habitaciones
-    public function getRooms() {
-        $query = $this->db->prepare('SELECT * FROM habitaciones');
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
-    }
-
-    // Obtener habitaciones por ID
-    public function getRoomById($id_habitacion) {
-        $query = $this->db->prepare('SELECT * FROM habitaciones WHERE id_habitacion = ?');
-        $query->execute([$id_habitacion]);
-        return $query->fetch(PDO::FETCH_OBJ); // Devolver un objeto con los datos de la habitación
-    }
-
-    // ABM B
-    public function addRoom($roomData) {
-        $query = $this->db->prepare("INSERT INTO habitaciones (Nombre, Tipo, Capacidad, Precio, foto_habitacion) VALUES (?, ?, ?, ?, ?)");
-        return $query->execute([$roomData['nombre'], $roomData['tipo'], $roomData['capacidad'], $roomData['precio'], $roomData['foto_habitacion']]);
-    }
-    
-    public function deleteRoom($roomId) {
-        $query = "DELETE FROM habitaciones WHERE id_habitacion = :id_habitacion";
-        $query = $this->db->prepare($query);
-        $query->bindParam(':id_habitacion', $roomId, PDO::PARAM_INT);
-        return $query->execute();
-    }
-
-    public function updateRoom($id, $data) {
-        $query = $this->db->prepare("UPDATE habitaciones SET Nombre = ?, Tipo = ?, Capacidad = ?, Precio = ?, foto_habitacion = ? WHERE id_habitacion = ?");
-        return $query->execute([$data['Nombre'], $data['Tipo'], $data['Capacidad'], $data['Precio'], $data['foto_habitacion'], $id]);
-    }
-    
-
-// ABM A
-
-    //Obtenemos las categorias
-    public function showListCategory() {
-        $query = $this->db->prepare("SELECT DISTINCT Tipo FROM habitaciones"); //Obtenemos los tipos de habitaciones
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    // Obtener habitaciones por tipo (categoría)
-    public function getHabitacionesPorTipo($tipo) {
-        $query = $this->db->prepare("SELECT * FROM habitaciones WHERE Tipo = ?");
-        $query->execute([$tipo]);
-        return $query->fetchAll(PDO::FETCH_OBJ);
-    }
-
-    //Buscar reserva
-    public function showReservation(){
-        $query = $this->db->prepare("SELECT * FROM reservas");
-        $query->execute();
-        $reservation = $query->fetchAll(PDO::FETCH_OBJ);
-        return $reservation;
-    }
-    public function addReservation($id_habitacion, $nombre_cliente, $Check_in, $Check_out) {
-        $query = $this->db->prepare("INSERT INTO reservas (id_habitacion, Check_in, Check_out, nombre_cliente) VALUES (?, ?, ?, ?)");
-        $query->execute([$id_habitacion, $Check_in, $Check_out, $nombre_cliente]);
-    }
-    public function deleteReservation($id_reserva) {
-        $query = $this->db->prepare("DELETE FROM reservas WHERE id_reserva = ?");
-        return $query->execute([$id_reserva]);
-    }
-    //Buscar habitacion ID para la reserva
-    public function getReservationById($id_reserva) {
-        $query = $this->db->prepare('SELECT * FROM reservas WHERE id_reserva = ?');
-        $query->execute([$id_reserva]);
-        return $query->fetch(PDO::FETCH_OBJ);
-    }
-    
-    public function UpdateReservation($id_reserva, $id_habitacion, $nombre_cliente, $check_in, $check_out) {
-        $query = $this->db->prepare('UPDATE reservas SET id_habitacion = ?, nombre_cliente = ?, Check_in = ?, Check_out = ? WHERE id_reserva = ?');
-        return $query->execute([$id_habitacion, $nombre_cliente, $check_in, $check_out, $id_reserva]);
+            END;
+            $this->db->query($sql);
+        }
     }
 }
