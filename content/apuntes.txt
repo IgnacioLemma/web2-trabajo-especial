@@ -25,7 +25,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
     ✅Agregar Items
         ✅❓❓❓Al agregar Items (Noticias/Productos/…) se debe poder elegir la categoría a la que pertenecen utilizando un select que muestre el nombre de la misma. (Creo que está implementado.)
     ✅Eliminar Items
-    ❌Editar Items (por hacer)
+    ✅Editar Items
 (B) Administrar Categorías (entidad del lado 1 de la relación)
     ✅Lista de Categorías
     ✅Agregar Categorías
@@ -45,7 +45,7 @@ Requerimientos Técnicos (no funcionales):
 
 ADDS:
 ✅Implementar un home
- ➡ ❌ mejorarlo
+ ➡ ❌❓ mejorarlo
 
 Notas:
 

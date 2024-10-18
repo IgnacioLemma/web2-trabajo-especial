@@ -31,7 +31,6 @@ require_once './templates/layouts/header.phtml';
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta reserva?');">Eliminar</button>
                             </form>
                             <form action="<?php echo BASE_URL . 'editReservation'; ?>" method="POST" style="display: inline;">
-                                <input type="hidden" name="id_habitacion" value="<?= htmlspecialchars($reservation->id_habitacion); ?>"> <!-- Ajuste aquí -->
                                 <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reservation->id_reserva); ?>">
                                 <button type="submit" class="btn btn-primary">Editar</button>
                             </form>

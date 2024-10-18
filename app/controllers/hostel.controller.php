@@ -194,34 +194,34 @@ class Hostelcontroller{
         }
         exit();
     }
-    public function editReservation($id_reserva,$rooms){
+    public function editReservation($id_reserva) {
         $reservation = $this->model->getReservationById($id_reserva);
-        $rooms = $this->model->getRooms(); // Método que deberías tener para obtener habitaciones
+        $rooms = $this->model->getRooms();
         if ($reservation) {
             $this->view->editReservationform($reservation, $rooms);
         } else {
             header('Location: ' . BASE_URL . 'errorPage');
         }
     }
-    
-    public function updateReservation() {
-        if (empty($_POST['id_reserva'])){
+    public function updateReservation() { 
+        if (empty($_POST['id_reserva'])) {
             return $this->view->showError('Falta el ID de la reserva.');
         }
+        
         $id_reserva = $_POST['id_reserva'];
         $id_habitacion = $_POST['id_habitacion'] ?? null;
         $nombre_cliente = $_POST['nombre_cliente'] ?? null;
         $check_in = $_POST['Check_in'] ?? null;
         $check_out = $_POST['Check_out'] ?? null;
     
-        if ($id_reserva && $id_habitacion && $nombre_cliente && $check_in && $check_out) {
+        if ($id_habitacion && $nombre_cliente && $check_in && $check_out) {
             if ($this->model->UpdateReservation($id_reserva, $id_habitacion, $nombre_cliente, $check_in, $check_out)) {
                 header('Location: ' . BASE_URL . 'showReservations');
             } else {
-                $this->view->showError("Error al editar reserva.");
+                return $this->view->showError("Error al editar reserva.");
             }
-            } else {
-                return $this->view->showError("Completar todos los campos");
-            }
+        } else {
+            return $this->view->showError("Completar todos los campos");
+        }
     }
 }

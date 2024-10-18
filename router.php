@@ -128,7 +128,19 @@ switch ($params[0]) {
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
         $controller = new HostelController($res);
-        $controller->updateReservation();
+        if (isset($_POST['id_reserva'])) {
+            $id_reserva = $_POST['id_reserva']; // Obtén el id de la reserva
+            $controller->editReservation($id_reserva); // Muestra el formulario de edición
+        } else {
+             header('Location: ' . BASE_URL . 'errorPage'); // Maneja el error si no hay id
+        }
+        break;
+        
+    case "updateReservation":
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        $controller->updateReservation(); 
         break;
     //error page
     case 'errorPage':

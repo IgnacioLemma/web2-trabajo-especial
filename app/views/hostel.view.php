@@ -51,7 +51,7 @@ class HostelView {
     public function addReservations($rooms){
         require_once './templates/pages/addReservations.phtml';
     }
-    public function editReservationform($id_reserva,$rooms){
+    public function editReservationform($reservation, $rooms) { 
         require_once './templates/pages/editReservation.phtml';
     }
 }
