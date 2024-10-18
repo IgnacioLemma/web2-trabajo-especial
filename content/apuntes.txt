@@ -30,7 +30,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
     ✅Lista de Categorías
     ✅Agregar Categorías
     ✅Eliminar Categorias
-    ❌Editar Categorías
+    ✅Editar Categorías
     ✅Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url).
 
 
