@@ -1,5 +1,5 @@
 <?php
-
+require_once './config/config.php';
 class HostelModel {
     protected $db;
 
