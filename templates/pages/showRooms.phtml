@@ -16,7 +16,7 @@ require_once './templates/layouts/header.phtml';
                             <input type="hidden" name="id_habitacion" value="<?= $room->id_habitacion ?>">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta habitación?');">Eliminar</button>
                         </form>
-                        <a href="<?= BASE_URL; ?>updateRoom/<?= $room->id_habitacion; ?>" class="btn btn-warning">Editar</a>
+                        <a href="<?= BASE_URL ?>editRoom?id_habitacion=<?= $room->id_habitacion ?>" class="btn btn-warning">Editar</a>
                         <?php endif; ?>
                     </div>
                 </div>

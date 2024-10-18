@@ -74,7 +74,7 @@ switch ($params[0]) {
         $controller = new Auth_controller();
         $controller->logout();
     break;
-    // ABM A
+    // ABM B
     case 'showAddRoom':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
@@ -93,13 +93,24 @@ switch ($params[0]) {
         $controller = new HostelController($res);
         $controller->deleteRoom();
         break;
+    case 'editRoom':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controller = new HostelController($res);
+        if (isset($_GET['id_habitacion'])) {
+            $id_habitacion = $_GET['id_habitacion']; // Obtén el id de la habitación
+            $controller->showEditRoomForm($id_habitacion);
+        } else {
+            header('Location: ' . BASE_URL . 'errorPage');
+        }
+        break;
     case 'updateRoom':
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
         $controller = new HostelController($res);
-        $controller->updateRoom();
-        break;    
-    //ABM B
+        $controller->updateRoom(); 
+        break; 
+    //ABM A
     case "showReservations":
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
@@ -130,9 +141,9 @@ switch ($params[0]) {
         $controller = new HostelController($res);
         if (isset($_POST['id_reserva'])) {
             $id_reserva = $_POST['id_reserva']; // Obtén el id de la reserva
-            $controller->editReservation($id_reserva); // Muestra el formulario de edición
+            $controller->editReservation($id_reserva);
         } else {
-             header('Location: ' . BASE_URL . 'errorPage'); // Maneja el error si no hay id
+            header('Location: ' . BASE_URL . 'errorPage');
         }
         break;
     case "updateReservation":

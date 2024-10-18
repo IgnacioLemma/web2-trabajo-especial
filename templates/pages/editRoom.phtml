@@ -1,33 +1,34 @@
 <?php
-require_once 'templates/layouts/header.phtml';
+require_once './templates/layouts/header.phtml';
 ?>
 <div class="container">
-        <h1>Editar Habitación: <?php echo $habitacion['Nombre']; ?></h1>
-        <form action="<?php echo BASE_URL; ?>/habitaciones/update/<?php echo $habitacion['id_habitacion']; ?>" method="POST">
-            <div class="mb-3">
-                <label for="Nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="Nombre" value="<?php echo $habitacion['Nombre']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="Tipo" class="form-label">Tipo</label>
-                <input type="text" class="form-control" name="Tipo" value="<?php echo $habitacion['Tipo']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="Capacidad" class="form-label">Capacidad</label>
-                <input type="number" class="form-control" name="Capacidad" value="<?php echo $habitacion['Capacidad']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="Precio" class="form-label">Precio</label>
-                <input type="number" class="form-control" name="Precio" value="<?php echo $habitacion['Precio']; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="foto_habitacion" class="form-label">Foto</label>
-                <input type="text" class="form-control" name="foto_habitacion" value="<?php echo $habitacion['foto_habitacion']; ?>" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Actualizar Habitación</button>
-        </form>
-        <a href="<?php echo BASE_URL; ?>/habitaciones" class="btn btn-secondary">Cancelar</a>
-    </div>
+    <h1>Editar Habitación: <?php echo $room->Nombre; ?></h1>
+    <form method="POST" action="<?php echo BASE_URL; ?>updateRoom">
+        <input type="hidden" name="id_habitacion" value="<?php echo $room->id_habitacion; ?>">
+        <div class="mb-3">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="Nombre" value="<?php echo $room->Nombre; ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="Tipo" class="form-label">Tipo</label>
+            <input type="text" class="form-control" name="Tipo" value="<?php echo $room->Tipo; ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="Capacidad" class="form-label">Capacidad</label>
+            <input type="number" class="form-control" name="Capacidad" value="<?php echo $room->Capacidad; ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="Precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" name="Precio" value="<?php echo $room->Precio; ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="foto_habitacion" class="form-label">Foto</label>
+            <input type="text" class="form-control" name="foto_habitacion" value="<?php echo $room->foto_habitacion; ?>" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+    <a href="<?php echo BASE_URL; ?>Rooms" class="btn btn-secondary">Cancelar</a>
+</div>
 <?php
 require_once './templates/layouts/footer.phtml';
 ?>

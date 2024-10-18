@@ -26,6 +26,7 @@ class HostelView {
         require_once './templates/pages/RoomDetails.phtml';
     }
 
+    // ABM B
     public function showAddRoomForm($categorias) {
         require_once './templates/pages/addRoom.phtml';
     }
@@ -43,6 +44,8 @@ class HostelView {
     public function showItemsCategory($rooms, $tipo) {
         require_once './templates/pages/Items_category.phtml';
     }
+
+    // ABM A
     //Mostrar reservas
     public function showReservations($reservations) {
         require_once './templates/pages/showReservations.phtml';
