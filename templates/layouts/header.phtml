@@ -31,12 +31,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= BASE_URL ?>showAddRoom">Agregar Habitación</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?= BASE_URL ?>showAddReservation">Nueva reserva</a>
-                    </li>
                 <?php endif; ?>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item me-2">
+                        <a class="btn btn-danger" href="<?= BASE_URL ?>showAddReservation">RESERVA YA</a>
+                    </li>
                 <?php if($this->user): ?>
                     <li class="nav-item">
                         <a class="btn btn-danger" href="<?= BASE_URL ?>logout">Salir</a>
