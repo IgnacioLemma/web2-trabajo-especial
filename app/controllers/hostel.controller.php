@@ -150,8 +150,8 @@ class Hostelcontroller{
         $this->view->showReservations($reservations);
     }
     public function showAddReservationForm() {
-        $rooms = $this->model->getRooms(); // Obtener las habitaciones
-        $this->view->addReservations($rooms); // Pasar los datos a la vista
+        $rooms = $this->model->getRooms(); 
+        $this->view->addReservations($rooms); 
     }
     
     public function addReservation(){
@@ -176,7 +176,7 @@ class Hostelcontroller{
 
         if (strtotime($Check_out) < strtotime($Check_in)) {
             return $this->view->showError('La fecha de Check-out debe ser posterior o igual a la de Check-in');
-        }    
+        }
     
         $this->model->addReservation($id_habitacion, $nombre_cliente, $Check_in, $Check_out);
         header('Location: ' . BASE_URL . 'showReservations');
@@ -196,6 +196,7 @@ class Hostelcontroller{
         exit();
     }
     public function editReservation($id_reserva) {
+        //busca el id e la reserva y manda al form para cambiar los datos
         $reservation = $this->model->getReservationById($id_reserva);
         $rooms = $this->model->getRooms();
         if ($reservation) {
@@ -204,11 +205,11 @@ class Hostelcontroller{
             header('Location: ' . BASE_URL . 'errorPage');
         }
     }
-    public function updateReservation() { 
+    public function updateReservation() {
         if (empty($_POST['id_reserva'])) {
             return $this->view->showError('Falta el ID de la reserva.');
         }
-        
+        //toma todos los datos de la reserva
         $id_reserva = $_POST['id_reserva'];
         $id_habitacion = $_POST['id_habitacion'] ?? null;
         $nombre_cliente = $_POST['nombre_cliente'] ?? null;
