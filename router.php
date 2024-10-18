@@ -135,7 +135,6 @@ switch ($params[0]) {
              header('Location: ' . BASE_URL . 'errorPage'); // Maneja el error si no hay id
         }
         break;
-        
     case "updateReservation":
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
