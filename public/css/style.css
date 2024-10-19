@@ -10,5 +10,15 @@ body {
 
 .container {
     flex-grow: 1;
+    padding: 0;
 }
 
+.title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    margin-top: 0;
+}

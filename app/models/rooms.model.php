@@ -36,9 +36,6 @@ require_once './app/models/hostel.model.php';
         return $query->execute([$data['Nombre'], $data['Tipo'], $data['Capacidad'], $data['Precio'], $data['foto_habitacion'], $id]);
     }
     
-
-// ABM A
-
     //Obtenemos las categorias
     function showListCategory() {
         $query = $this->db->prepare("SELECT DISTINCT Tipo FROM habitaciones"); //Obtenemos los tipos de habitaciones

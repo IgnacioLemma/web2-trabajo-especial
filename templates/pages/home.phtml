@@ -2,6 +2,12 @@
 require_once "./templates/layouts/header.phtml"; 
 ?>
 <main class="container mt-5">
+    <section class="custom-header text-start py-5">
+        <div class="container">
+            <h1 class="title">Encuentra tu próxima estancia</h1>
+            <p class="subtitle">Busca ofertas en hoteles, casas y mucho más...</p>
+        </div>
+    </section>
 <?php if(!$this->user): ?>
     <section class="bg-light py-5">
         <div class="container text-center">
