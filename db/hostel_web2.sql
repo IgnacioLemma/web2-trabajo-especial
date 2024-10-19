@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2024 a las 01:13:56
+-- Tiempo de generación: 20-10-2024 a las 01:44:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -82,13 +82,14 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, `nombre_cliente`, `id_usuario`) VALUES
-(4, 1, '2024-10-01', '2024-10-05', 'Juan', 1),
-(7, 1, '2024-10-03', '2024-10-07', 'Marisa', 1),
-(8, 4, '2024-10-03', '2024-10-20', 'Edena', 1),
-(11, 3, '2024-10-02', '2024-10-18', 'Noa', 2),
-(16, 5, '2024-10-01', '2024-10-25', 'Jorge', 1),
-(19, 4, '2024-09-20', '2024-09-25', 'hola mundo', 3),
-(22, 5, '2025-02-03', '2025-03-06', 'test 2', 0);
+(23, 4, '2024-10-19', '2024-10-22', 'Padding Margin', 0),
+(24, 2, '2024-11-01', '2024-11-06', 'hola mundo', 0),
+(25, 7, '2024-11-07', '2024-11-14', 'hola mundo', 0),
+(26, 13, '2024-11-15', '2024-11-17', 'hola mundo', 0),
+(27, 20, '2024-11-28', '2030-10-28', 'Error Warning ', 0),
+(28, 15, '2024-10-26', '2024-10-26', 'Juan', 0),
+(29, 12, '2024-10-19', '2042-10-19', 'Iago Mati', 0),
+(30, 1, '2024-10-20', '2024-10-26', 'Web Admin', 0);
 
 -- --------------------------------------------------------
 
@@ -107,12 +108,14 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `email`, `password`) VALUES
-(1, 'webadmin@tudai.ar', 'admin'),
-(2, 'noa@tudai.es', 'holamundo'),
-(3, 'hellotudai@web2.phtml', ' basededatos'),
 (4, 'barrionuevonoa@gmail.com', '$2y$10$VaTFknJTpxezH.PwM2PwgOT23dvWODo33vqE/nJ1e8BJpN3.trBW2'),
 (5, 'test@tudai.com', '$2y$10$WW281rLvOyiCcW8Gt1rBzuoFFhTEfZ62PaI5hZtQyPJILkVxF9nFO'),
-(6, 'webadmin@unicen.tudai', '$2y$10$ddC8sbbnG.zZItIPp01h6edkKGAjmy5LcgFt7unbxr6.SDGILOALW');
+(6, 'webadmin@unicen.tudai', '$2y$10$ddC8sbbnG.zZItIPp01h6edkKGAjmy5LcgFt7unbxr6.SDGILOALW'),
+(10, 'padding@gmail.com', '$2y$10$Ni.ATvWeSGTjFlkQVar2E.GyQr5wUWYoGjO3eyA/WBXfIYk00yD8.'),
+(11, 'helloworld@python.com', '$2y$10$aI5Qz07YMYY7sX.9SL9IGOU3kjs7JHqxADegHQpa4cXe14aVaU5dq'),
+(12, 'warningError@gmail.com', '$2y$10$ZIJCPdPZgZRhnJGcjdTZD.C1TOZHipl2a041yWbVCFGG./h2hnY6a'),
+(13, 'juan@hotmail.com', '$2y$10$99zVemEnmDy/eKSq0X42Le./deaCnrATjvF1N1NXVtJPbh6MWpx5O'),
+(14, 'iagomati@gmail.com', '$2y$10$.VEnx4gyXKxkvQsMy/4F6edaCaForfs7J8xpV1Ni5GZf8S/6PhJS2');
 
 --
 -- Índices para tablas volcadas
@@ -151,13 +154,13 @@ ALTER TABLE `habitaciones`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
