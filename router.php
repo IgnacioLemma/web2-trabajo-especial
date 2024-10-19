@@ -157,7 +157,7 @@ switch ($params[0]) {
     //error page
     case 'errorPage':
         sessionAuthMiddleware($res);
-        $controller = new HostelController($res);
+        $controller = new errorController($res);
         $controller->errorPage(); // Muestra la página de error
         break;
     default:

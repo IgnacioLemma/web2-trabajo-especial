@@ -36,7 +36,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
 
 Base de datos:
 ✅config.php
-❌❓ deploy
+✅deploy
 
 Requerimientos Técnicos (no funcionales):
 ✅Todos los HTML deben mostrarse utilizando plantillas (phtml o Smarty)
@@ -50,7 +50,7 @@ ADDS:
 
 Notas:
 
-❓❓❓*Autenticación y seguridad: Se recomienda comenzar con la sección “privada” sin autenticación. Una vez dada la clase de seguridad es muy sencillo protegerlo con usuario y contraseña.
+✅*Autenticación y seguridad: Se recomienda comenzar con la sección “privada” sin autenticación. Una vez dada la clase de seguridad es muy sencillo protegerlo con usuario y contraseña.
 ✅**Vistas: Se recomienda mantener una UI muy sencilla hasta que se dé la clase de Templates.
 
 Pautas de corrección:
