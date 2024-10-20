@@ -56,7 +56,6 @@ function __construct() {
                 (8, 'Suite - Paraíso en Cancún', 'Suite', 4, 1800, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/e4/f2/3d/crown-cancun-room-honeymoon.jpg?w=700&h=-1&s=1'),
                 (9, 'Habitación Compartida - Aventura en Bariloche', 'Compartida', 6, 1500, 'https://content.r9cdn.net/rimg/himg/34/c9/02/leonardo-46490-179652986-849190.jpg?width=500&height=350&xhint=1560&yhint=1000&crop=true'),
                 (10, 'Habitación Familiar - Escape a la Costa', 'Familiar', 5, 2500, 'https://www.es.kayak.com/rimg/himg/e9/99/e2/expedia_group-2184499-47f024-627486.jpg?width=1366&height=768&crop=true'),
-                (11, 'Habitación Individual - Refugio en Rosario', 'Individual', 1, 700, 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/528037185.jpg?k=3b7d21b34c4fab9026e1d0e7e4abded76a9f3b4f904308738981733928d894db&o=&hp=1'),
                 (12, 'Habitación Doble - Oasis en Dubai', 'Doble', 2, 850, 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/472430169.jpg?k=7e2c59608867bc52ee353b6f9dd2a8855988f7abb2c989246c587cc8c2fe6c5a&o=&hp=1'),
                 (13, 'Suite - Experiencia en Bora Bora', 'Suite', 4, 2000, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/b0/b8/60/suite-hotels.jpg?w=1200&h=-1&s=1'),
                 (14, 'Habitación Compartida - Comunidad en Córdoba', 'Compartida', 6, 1700, 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/597938449.jpg?k=eb7c888e454e6fe0cd09d3339a9b11b29c4fcb38df3c84660d2927ab03e896aa&o=&hp=1'),
@@ -66,21 +65,27 @@ function __construct() {
                 (18, 'Habitación Premium - Lujo en Las Vegas', 'Premium', 4, 2500, 'https://dlq00ggnjruqn.cloudfront.net/prometheus/getImage?id=415637&width=940&height=530'),
                 (19, 'Habitación Deluxe - Vista a la Ciudad de Nueva Yor', 'Deluxe', 3, 2400, 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/487976928.jpg?k=0bc195a80e41c80c47963a441c91cb719f93ad1cc001b0a8e09cdc7d6c360a36&o=&hp=1'),
                 (20, 'Habitación Económica - Confort en Tandil', 'Económica', 2, 450, 'https://media-cdn.tripadvisor.com/media/photo-s/17/60/60/a8/hotel-francia.jpg');
+                (11, 'Habitación Individual - Refugio en Rosario', 'Individual', 1, 700, 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/528037185.jpg?k=3b7d21b34c4fab9026e1d0e7e4abded76a9f3b4f904308738981733928d894db&o=&hp=1'),
 
                 INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, `nombre_cliente`, `id_usuario`) VALUES
-                (4, 1, '2024-10-01', '2024-10-05', 'Juan', 1),
-                (7, 1, '2024-10-03', '2024-10-07', 'Marisa', 1),
-                (8, 4, '2024-10-03', '2024-10-20', 'Edena', 1),
-                (11, 3, '2024-10-02', '2024-10-18', 'Noa', 2),
-                (16, 5, '2024-10-01', '2024-10-25', 'Jorge', 1),
-                (19, 4, '2024-09-20', '2024-09-25', 'hola mundo', 3),
-                (22, 5, '2025-02-03', '2025-03-06', 'test 2', 0);
+                (23, 4, '2024-10-19', '2024-10-22', 'Padding Margin', 0),
+                (24, 2, '2024-11-01', '2024-11-06', 'hola mundo', 0),
+                (25, 7, '2024-11-07', '2024-11-14', 'hola mundo', 0),
+                (26, 13, '2024-11-15', '2024-11-17', 'hola mundo', 0),
+                (27, 20, '2024-11-28', '2030-10-28', 'Error Warning ', 0),
+                (28, 15, '2024-10-26', '2024-10-26', 'Juan', 0),
+                (29, 12, '2024-10-19', '2042-10-19', 'Iago Mati', 0),
+                (30, 1, '2024-10-20', '2024-10-26', 'Web Admin', 0);
             
-                CREATE TABLE `usuarios` (
-                `id_usuario` int(11) NOT NULL,
-                `email` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-                `password` char(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+                INSERT INTO `usuarios` (`id_usuario`, `email`, `password`) VALUES
+                (4, 'barrionuevonoa@gmail.com', '$2y$10$VaTFknJTpxezH.PwM2PwgOT23dvWODo33vqE/nJ1e8BJpN3.trBW2'),
+                (5, 'test@tudai.com', '$2y$10$WW281rLvOyiCcW8Gt1rBzuoFFhTEfZ62PaI5hZtQyPJILkVxF9nFO'),
+                (6, 'webadmin@unicen.tudai', '$2y$10$ddC8sbbnG.zZItIPp01h6edkKGAjmy5LcgFt7unbxr6.SDGILOALW'),
+                (10, 'padding@gmail.com', '$2y$10$Ni.ATvWeSGTjFlkQVar2E.GyQr5wUWYoGjO3eyA/WBXfIYk00yD8.'),
+                (11, 'helloworld@python.com', '$2y$10$aI5Qz07YMYY7sX.9SL9IGOU3kjs7JHqxADegHQpa4cXe14aVaU5dq'),
+                (12, 'warningError@gmail.com', '$2y$10$ZIJCPdPZgZRhnJGcjdTZD.C1TOZHipl2a041yWbVCFGG./h2hnY6a'),
+                (13, 'juan@hotmail.com', '$2y$10$99zVemEnmDy/eKSq0X42Le./deaCnrATjvF1N1NXVtJPbh6MWpx5O'),
+                (14, 'iagomati@gmail.com', '$2y$10$.VEnx4gyXKxkvQsMy/4F6edaCaForfs7J8xpV1Ni5GZf8S/6PhJS2');
             END;
             $this->db->query($sql);
         }
