@@ -5,7 +5,6 @@
  - [Proyecto](#descripción-del-proyecto-hostel)
  - [Diagrama](#diagrama)
  - [Despliegue del sitio](#despliegue-del-sitio)
- - [Relaciones](#relacion-1-a-n)
  - [Autores](#autores)
  - [Extra](#extra)
 
@@ -45,14 +44,7 @@
      - Email: webadmin@unicen.tudai
      - Contraseña: admin
 
-## Relacion 1 a N
 
-- Habitaciones a Reservas
-    - Cada habitacion puede tener varias reservas a lo largo del tiempo:
-        - Una misma habitacion puede ser reservada en diferentes momentos, para diferentes fechas y multiples clientes
-        - La tabla reservas puede tener varias accesos con el mismo id_habitacion, cada una representando una reserva distinta en fechas diferentes
-    - Cada reserva está asociada a una única habitacion:
-        - Cada acceso en la tabla reservas está asociada a una sola habitacion por el id_habitacion entonces cada reserva está asociada con una  habitación especifica.
 
 ## AUTORES
 
@@ -65,3 +57,12 @@
 #### EXTRA
     
     Debido a un error en vscode, el autor *Lemma Ignacio* realizara commit desde otra cuenta de github
+
+## Relacion 1 a N
+
+- Habitaciones a Reservas
+    - Cada habitacion puede tener varias reservas a lo largo del tiempo:
+        - Una misma habitacion puede ser reservada en diferentes momentos, para diferentes fechas y multiples clientes
+        - La tabla reservas puede tener varias accesos con el mismo id_habitacion, cada una representando una reserva distinta en fechas diferentes
+    - Cada reserva está asociada a una única habitacion:
+        - Cada acceso en la tabla reservas está asociada a una sola habitacion por el id_habitacion entonces cada reserva está asociada con una  habitación especifica.
