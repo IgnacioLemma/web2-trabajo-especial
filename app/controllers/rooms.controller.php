@@ -83,7 +83,6 @@ class RoomsController{
                     'precio' => $_POST['precio'],
                     'foto_habitacion' => $filePath 
                 ];
-            
                 if ($this->model->addRoom($roomData)) {
                     header('Location: ' . BASE_URL . 'Rooms');
                 } else {
@@ -151,7 +150,6 @@ class RoomsController{
             $existingRoom = $this->model->getRoomById($roomData['id_habitacion']);
             $roomData['foto_habitacion'] = $existingRoom->foto_habitacion;
         }
-    
         if ($this->model->updateRoom($roomData['id_habitacion'], $roomData)) {
             header('Location: ' . BASE_URL . 'Rooms');
         } else {
