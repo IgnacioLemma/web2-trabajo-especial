@@ -57,7 +57,6 @@ class RoomsController{
     }
 
     public function addRoom() {
-        // Verificar que todos los campos requeridos estén presentes y no vacíos
         if (!isset($_POST['nombre']) || empty(trim($_POST['nombre']))) {
             return $this->errorView->showError('Falta completar el nombre de la habitación');
         }
@@ -70,25 +69,35 @@ class RoomsController{
         if (!isset($_POST['precio']) || empty(trim($_POST['precio']))) {
             return $this->errorView->showError('Falta completar el precio');
         }
-        if (!isset($_POST['foto_habitacion']) || empty(trim($_POST['foto_habitacion']))) {
-            return $this->errorView->showError('Falta completar la URL de la foto');
-        }
-
-        $roomData = [
-            'nombre' => $_POST['nombre'],
-            'tipo' => $_POST['tipo'],
-            'capacidad' => $_POST['capacidad'],
-            'precio' => $_POST['precio'],
-            'foto_habitacion' => $_POST['foto_habitacion']
-        ];
     
-        if ($this->model->addRoom($roomData)) {
-            header('Location: ' . BASE_URL . 'Rooms');
+        $fileType = $_FILES['foto_habitacion']['type'];
+        if ($fileType == "image/jpg" || $fileType == "image/jpeg" || $fileType == "image/png") {
+            // Nombre único para el archivo
+            $filePath = "public/img/FotoHabitaciones/" . uniqid("", true) . "." . strtolower(pathinfo($_FILES['foto_habitacion']['name'], PATHINFO_EXTENSION));
+            
+            if (move_uploaded_file($_FILES['foto_habitacion']['tmp_name'], $filePath)) {
+                $roomData = [
+                    'nombre' => $_POST['nombre'],
+                    'tipo' => $_POST['tipo'],
+                    'capacidad' => $_POST['capacidad'],
+                    'precio' => $_POST['precio'],
+                    'foto_habitacion' => $filePath 
+                ];
+            
+                if ($this->model->addRoom($roomData)) {
+                    header('Location: ' . BASE_URL . 'Rooms');
+                } else {
+                        $this->errorView->showError("Error al agregar la habitación.");
+                    }
+            } else {
+                $this->errorView->showError("Error al subir la imagen.");
+            }
         } else {
-            $this->errorView->showError("Error al agregar la habitación.");
+            $this->errorView->showError("Solo se permiten imágenes JPG, JPEG, PNG");
         }
     }
     
+
     public function deleteRoom() {
         if (!isset($_POST['id_habitacion']) || empty($_POST['id_habitacion'])) {
             return $this->errorView->showError('Falta el ID de la habitación.');
@@ -119,21 +128,29 @@ class RoomsController{
             return $this->errorView->showError('Falta el ID de la habitación.');
         }
     
-        $requiredFields = ['Nombre', 'Tipo', 'Capacidad', 'Precio', 'foto_habitacion'];
-        foreach ($requiredFields as $field) {
-            if (empty(trim($_POST[$field]))) {
-                return $this->errorView->showError("Falta completar el campo: " . ucfirst($field));
-            }
-        }
-    
         $roomData = [
             'id_habitacion' => $_POST['id_habitacion'],
             'Nombre' => $_POST['Nombre'],
             'Tipo' => $_POST['Tipo'],
             'Capacidad' => $_POST['Capacidad'],
             'Precio' => $_POST['Precio'],
-            'foto_habitacion' => $_POST['foto_habitacion']
         ];
+    
+        // Solo hacer update si la imagen está seteada
+        if (isset($_FILES['foto_habitacion']) && $_FILES['foto_habitacion']['error'] === UPLOAD_ERR_OK) {
+            $fileTemp = $_FILES['foto_habitacion']['tmp_name'];
+            $filePath = "public/img/FotoHabitaciones/" . uniqid("", true) . "." . strtolower(pathinfo($_FILES['foto_habitacion']['name'], PATHINFO_EXTENSION));
+            
+            if (move_uploaded_file($fileTemp, $filePath)) {
+                $roomData['foto_habitacion'] = $filePath; // Nueva imagen
+            } else {
+                return $this->errorView->showError("Error al subir la nueva imagen.");
+            }
+        } else {
+            // Obtener imagen de la base de datos si no se subió una nueva
+            $existingRoom = $this->model->getRoomById($roomData['id_habitacion']);
+            $roomData['foto_habitacion'] = $existingRoom->foto_habitacion;
+        }
     
         if ($this->model->updateRoom($roomData['id_habitacion'], $roomData)) {
             header('Location: ' . BASE_URL . 'Rooms');

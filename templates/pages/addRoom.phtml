@@ -1,7 +1,7 @@
 <?php
     require_once 'templates/layouts/header.phtml';
 ?>
-<form method="POST" action="addRoom" class="container mt-4">
+<form method="POST" action="addRoom" class="container mt-4" enctype="multipart/form-data">
     <h2>Completar los datos de la nueva Habitación</h2>
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
@@ -20,8 +20,8 @@
         <input type="text" name="tipo" class="form-control" id="tipo" placeholder="Tipo de Habitación" required>
     </div>
     <div class="mb-3">
-        <label for="foto_habitacion" class="form-label">URL de la Foto</label>
-        <input type="text" name="foto_habitacion" class="form-control" id="foto_habitacion" placeholder="URL de la imagen" required>
+        <label for="foto_habitacion" class="form-label">Foto de la Habitación</label>
+        <input type="file" name="foto_habitacion" accept="image/*" class="form-control" id="foto_habitacion" placeholder="Selecciona la imagen" required>
     </div>
 
     <button type="submit" class="btn btn-primary">Agregar Habitación</button>
