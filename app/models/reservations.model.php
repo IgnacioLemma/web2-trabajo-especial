@@ -10,10 +10,10 @@ class ReservationsModel extends HostelModel{
         $reservation = $query->fetchAll(PDO::FETCH_OBJ);
         return $reservation;
     }
-    function addReservation($id_habitacion, $nombre_cliente, $Check_in, $Check_out) {
-        $query = $this->db->prepare("INSERT INTO reservas (id_habitacion, Check_in, Check_out, nombre_cliente) VALUES (?, ?, ?, ?)");
-        $query->execute([$id_habitacion, $Check_in, $Check_out, $nombre_cliente]);
-    }
+    function addReservation($id_habitacion, $id_usuario, $nombre_cliente, $Check_in, $Check_out) {
+        $query = $this->db->prepare("INSERT INTO reservas (id_habitacion, id_usuario, Check_in, Check_out, nombre_cliente) VALUES (?, ?, ?, ?, ?)");
+        $query->execute([$id_habitacion, $id_usuario, $Check_in, $Check_out, $nombre_cliente]);
+    }       
     function deleteReservation($id_reserva) {
         $query = $this->db->prepare("DELETE FROM reservas WHERE id_reserva = ?");
         return $query->execute([$id_reserva]);

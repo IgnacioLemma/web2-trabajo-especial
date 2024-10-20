@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2024 a las 01:44:14
+-- Tiempo de generación: 20-10-2024 a las 19:26:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -82,14 +82,14 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id_reserva`, `id_habitacion`, `Check_in`, `Check_out`, `nombre_cliente`, `id_usuario`) VALUES
-(23, 4, '2024-10-19', '2024-10-22', 'Padding Margin', 0),
-(24, 2, '2024-11-01', '2024-11-06', 'hola mundo', 0),
-(25, 7, '2024-11-07', '2024-11-14', 'hola mundo', 0),
-(26, 13, '2024-11-15', '2024-11-17', 'hola mundo', 0),
-(27, 20, '2024-11-28', '2030-10-28', 'Error Warning ', 0),
-(28, 15, '2024-10-26', '2024-10-26', 'Juan', 0),
-(29, 12, '2024-10-19', '2042-10-19', 'Iago Mati', 0),
-(30, 1, '2024-10-20', '2024-10-26', 'Web Admin', 0);
+(23, 4, '2024-10-19', '2024-10-22', 'Padding Margin', 10),
+(24, 2, '2024-11-01', '2024-11-06', 'hola mundo', 11),
+(25, 7, '2024-11-07', '2024-11-14', 'hola mundo', 11),
+(26, 13, '2024-11-15', '2024-11-17', 'hola mundo', 11),
+(27, 20, '2024-11-28', '2030-10-28', 'Error Warning ', 12),
+(28, 15, '2024-10-26', '2024-10-26', 'Juan', 13),
+(29, 12, '2024-10-19', '2042-10-19', 'Iago Mati', 14),
+(30, 1, '2024-10-20', '2024-10-26', 'Web Admin', 6);
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,8 @@ ALTER TABLE `habitaciones`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`),
-  ADD KEY `id_habitacion` (`id_habitacion`);
+  ADD KEY `id_habitacion` (`id_habitacion`),
+  ADD KEY `id_usuario` (`id_usuario`) USING BTREE;
 
 --
 -- Indices de la tabla `usuarios`
@@ -154,7 +155,7 @@ ALTER TABLE `habitaciones`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -170,7 +171,8 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_habitacion`) REFERENCES `habitaciones` (`id_habitacion`);
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_habitacion`) REFERENCES `habitaciones` (`id_habitacion`),
+  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

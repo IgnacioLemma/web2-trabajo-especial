@@ -63,7 +63,12 @@ class ReservationsController{
             return $this->errorView->showError('La fecha de Check-out debe ser posterior o igual a la de Check-in');
         }
     
-        $this->model->addReservation($id_habitacion, $nombre_cliente, $Check_in, $Check_out);
+        $id_usuario = $_SESSION['id_user'] ?? null;
+        if (!$id_usuario) {
+            return $this->errorView->showError('El usuario no está logueado.');
+        }
+
+        $this->model->addReservation($id_habitacion, $id_usuario, $nombre_cliente, $Check_in, $Check_out);
         header('Location: ' . BASE_URL . 'showReservations');
         exit();
     }
