@@ -22,11 +22,18 @@ class ReservationsController{
 
 
 
-        // ABM A
+// ABM A
     public function showReservations() {
         $reservations = $this->model->showReservation();
-        $this->view->showReservations($reservations);
+        
+        $rooms = $this->roomsModel->getRooms();
+        $roomNames = [];
+        foreach ($rooms as $room) {
+            $roomNames[$room->id_habitacion] = $room->Nombre;
+        }
+        $this->view->showReservations($reservations, $roomNames);
     }
+        
     public function showAddReservationForm() {
         $rooms = $this->roomsModel->getRooms(); 
         $this->view->addReservations($rooms); 
