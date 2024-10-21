@@ -32,7 +32,7 @@ Se debe crear servicios de ABM (alta/baja/modificación) para administrar los da
     ✅Eliminar Categorias
     ✅Editar Categorías
     ✅Se puede subir una foto cuando se crea el ítem o categoría (Puede cargarse por url).
-       ➡️ ❌ Opcional 
+       ➡️ ✅ Opcional 
 
 Base de datos:
 ✅config.php
@@ -46,7 +46,7 @@ Requerimientos Técnicos (no funcionales):
 
 ADDS:
 ✅Implementar un home
- ➡ ❌❓ mejorarlo
+ ➡ ✅ mejorarlo
 
 Notas:
 
@@ -63,6 +63,6 @@ Pautas de corrección:
 
 Entrega:
 📆 20 DE OCTUBRE
-❌ Update README ➡ una breve explicación de cómo desplegar el sitio en un servidor con Apache y MySQL, como también cualquier información necesaria para su uso, como pueden ser usuarios y contraseñas de administrador. 
+✅ Update README ➡ una breve explicación de cómo desplegar el sitio en un servidor con Apache y MySQL, como también cualquier información necesaria para su uso, como pueden ser usuarios y contraseñas de administrador. 
 
 
